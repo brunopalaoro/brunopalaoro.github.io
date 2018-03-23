@@ -5,7 +5,7 @@
     <meta charset="utf-8">
 
     <title>Projeto Poker Pro - Range</title>
-<!-- 
+    <!-- 
      <link rel='stylesheet' id='illdy-pace-css' href='http://projetopokerpro.com.br/wp-content/themes/illdy/layout/css/pace.min.css?ver=4.8.5'
         type='text/css' media='all' />
     <link rel='stylesheet' id='font-awesome-css' href='http://projetopokerpro.com.br/wp-content/themes/illdy/layout/css/font-awesome.min.css?ver=4.5.0'
@@ -25,18 +25,745 @@
 
      -->
     <link rel='stylesheet' id='bootstrap-css' href='http://projetopokerpro.com.br/wp-content/themes/illdy/layout/css/bootstrap.min.css?ver=3.3.6'
-     type='text/css' media='all' />
+        type='text/css' media='all' />
     <link rel='stylesheet' id='bootstrap-theme-css' href='http://projetopokerpro.com.br/wp-content/themes/illdy/layout/css/bootstrap-theme.min.css?ver=3.3.6'
-     type='text/css' media='all' />
-     
+        type='text/css' media='all' />
 
-     <style>
+
+    <style>
         /* body  {
             background: linear-gradient(to top, transparent 5%, #000 100%);
              background: #191919;
             color: #fff;
         }  */
-     </style>
+
+        .card-footer,
+        .card-header {
+            padding: .7692rem 1.538rem;
+        }
+
+        .card {
+            position: relative;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            min-width: 0;
+            word-wrap: break-word;
+            background-clip: border-box;
+            border: 1px solid rgba(0, 0, 0, .125);
+        }
+
+        .card>hr {
+            margin-right: 0;
+        }
+
+        .card>.list-group:first-child .list-group-item:first-child {
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+        }
+
+        .card>.list-group:last-child .list-group-item:last-child {
+            border-bottom-right-radius: 3px;
+            border-bottom-left-radius: 3px;
+        }
+
+        .card-body {
+            -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+        }
+
+        .card-title {
+            margin-bottom: .7692rem;
+        }
+
+        .card-header,
+        .card-text:last-child {
+            margin-bottom: 0;
+        }
+
+        .card-link:hover {
+            text-decoration: none;
+        }
+
+        .card-link+.card-link {
+            margin-left: 1.538rem;
+        }
+
+        .card-header-pills,
+        .card-header-tabs {
+            margin-right: -.769rem;
+            margin-left: -.769rem;
+        }
+
+        .card-header {
+            border-bottom: 1px solid rgba(0, 0, 0, .125);
+        }
+
+        .card-header:first-child {
+            border-radius: calc(3px - 1px) calc(3px - 1px) 0 0;
+        }
+
+        .card-header+.list-group .list-group-item:first-child {
+            border-top: 0;
+        }
+
+        .card-footer {
+            background-color: #FFF;
+            border-top: 1px solid rgba(0, 0, 0, .125);
+        }
+
+        .card-footer:last-child {
+            border-radius: 0 0 calc(3px - 1px) calc(3px - 1px);
+        }
+
+        .card-header-tabs {
+            margin-bottom: -.7692rem;
+            border-bottom: 0;
+        }
+
+        .card-img-overlay {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            padding: 1.25rem;
+        }
+
+        .card-img {
+            width: 100%;
+            border-radius: calc(3px - 1px);
+        }
+
+        .card-img-top {
+            width: 100%;
+            border-top-left-radius: calc(3px - 1px);
+            border-top-right-radius: calc(3px - 1px);
+        }
+
+        .card-img-bottom {
+            width: 100%;
+            border-bottom-right-radius: calc(3px - 1px);
+            border-bottom-left-radius: calc(3px - 1px);
+        }
+
+        .card-deck {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-direction: column;
+            flex-direction: column;
+        }
+
+        .card-deck .card {
+            margin-bottom: 15px;
+        }
+
+        @media (min-width:576px) {
+            .card-deck {
+                -ms-flex-flow: row wrap;
+                flex-flow: row wrap;
+                margin-right: -15px;
+                margin-left: -15px;
+            }
+            .card-deck .card {
+                display: -ms-flexbox;
+                display: flex;
+                -ms-flex: 1 0 0%;
+                flex: 1 0 0%;
+                -ms-flex-direction: column;
+                flex-direction: column;
+                margin-right: 15px;
+                margin-bottom: 0;
+                margin-left: 15px;
+            }
+        }
+
+        .card-group {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-direction: column;
+            flex-direction: column;
+        }
+
+        .card-group>.card {
+            margin-bottom: 15px;
+        }
+
+        @media (min-width:576px) {
+            .card-group {
+                -ms-flex-flow: row wrap;
+                flex-flow: row wrap;
+            }
+            .card-group>.card {
+                -ms-flex: 1 0 0%;
+                flex: 1 0 0%;
+                margin-bottom: 0;
+            }
+            .card-group>.card+.card {
+                margin-left: 0;
+                border-left: 0;
+            }
+            .card-group>.card:first-child {
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+            .card-group>.card:first-child .card-header,
+            .card-group>.card:first-child .card-img-top {
+                border-top-right-radius: 0;
+            }
+            .card-group>.card:first-child .card-footer,
+            .card-group>.card:first-child .card-img-bottom {
+                border-bottom-right-radius: 0;
+            }
+            .card-group>.card:last-child {
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+            }
+            .card-group>.card:last-child .card-header,
+            .card-group>.card:last-child .card-img-top {
+                border-top-left-radius: 0;
+            }
+            .card-group>.card:last-child .card-footer,
+            .card-group>.card:last-child .card-img-bottom {
+                border-bottom-left-radius: 0;
+            }
+            .card-group>.card:only-child {
+                border-radius: 3px;
+            }
+            .card-group>.card:only-child .card-header,
+            .card-group>.card:only-child .card-img-top {
+                border-top-left-radius: 3px;
+                border-top-right-radius: 3px;
+            }
+            .card-group>.card:only-child .card-footer,
+            .card-group>.card:only-child .card-img-bottom {
+                border-bottom-right-radius: 3px;
+                border-bottom-left-radius: 3px;
+            }
+            .card-group>.card:not(:first-child):not(:last-child):not(:only-child),
+            .card-group>.card:not(:first-child):not(:last-child):not(:only-child) .card-footer,
+            .card-group>.card:not(:first-child):not(:last-child):not(:only-child) .card-header,
+            .card-group>.card:not(:first-child):not(:last-child):not(:only-child) .card-img-bottom,
+            .card-group>.card:not(:first-child):not(:last-child):not(:only-child) .card-img-top {
+                border-radius: 0;
+            }
+            .card-columns {
+                -webkit-column-count: 3;
+                column-count: 3;
+                -webkit-column-gap: 1.25rem;
+                column-gap: 1.25rem;
+            }
+            .card-columns .card {
+                display: inline-block;
+                width: 100%
+            }
+        }
+
+        .card-columns .card {
+            margin-bottom: .7692rem;
+        }
+
+        .card {
+            background-color: #FFF;
+            margin-bottom: 25px;
+            box-shadow: 0 0 4px 0 rgba(0, 0, 0, .04);
+            border-width: 0;
+            border-radius: 3px;
+            display: block;
+        }
+
+        .card th {
+            border-top: 0;
+            vertical-align: middle;
+        }
+
+        .card-body {
+            padding: 8px 20px 20px;
+            border-radius: 0 0 3px 3px;
+        }
+
+        .card-header {
+            font-size: 18px;
+            font-weight: 300;
+            padding-left: 0;
+            padding-right: 0;
+            padding-top: 1.5384rem;
+            margin: 0 1.538rem;
+            border-bottom-width: 0;
+            border-radius: 3px 3px 0 0;
+            background-color: transparent;
+        }
+
+        .card-header .tools {
+            float: right;
+            font-size: 0;
+        }
+
+        .card-header .tools>a {
+            display: inline-block;
+        }
+
+        .card-header .tools .icon {
+            display: inline-block;
+            font-size: 1.538rem;
+            line-height: 25px;
+            vertical-align: middle;
+            cursor: pointer;
+            color: #bababa;
+            min-width: 1.538rem;
+            text-align: center;
+        }
+
+        .card-header .tools .icon+.icon {
+            margin-left: 2px;
+        }
+
+        .card-header .tools .icon:hover {
+            color: #a6a6a6;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 300;
+            display: block;
+            margin: 0;
+        }
+
+        .card-subtitle {
+            display: block;
+            font-size: 1rem;
+            color: #707070;
+            margin-top: 0;
+            margin-bottom: .4615rem;
+        }
+
+        .card-full-color .card-header .card-subtitle,
+        .card-full-color .card-header .icon,
+        .card-full-primary,
+        .card-full-primary .tools .icon {
+            color: #FFF;
+        }
+
+        .card-header-divider {
+            border-bottom: 1px solid #d9d9d9;
+            margin: 0 1.538rem 8px;
+            padding-left: 0;
+            padding-right: 0;
+            padding-bottom: 1.2307rem;
+        }
+
+        .card-header-divider .card-subtitle {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        .card-flat {
+            border: none;
+            box-shadow: none;
+        }
+
+        .card-border {
+            box-shadow: none;
+            border: 1px solid #d4d4d4;
+        }
+
+        .card-contrast .card-header {
+            margin: 0;
+            padding: 20px 20px 11px;
+        }
+
+        .card-contrast .card-body {
+            padding-top: 16px;
+        }
+
+        .card-body-contrast,
+        .card-header-contrast {
+            background-color: #f5f5f5;
+        }
+
+        .card-border-color {
+            border-top: 3px solid #c9c9c9;
+        }
+
+        .card-border-color-primary {
+            border-top-color: #4285f4;
+        }
+
+        .card-border-color-danger {
+            border-top-color: #ea4335;
+        }
+
+        .card-border-color-warning {
+            border-top-color: #fbbc05;
+        }
+
+        .card-border-color-success {
+            border-top-color: #34a853;
+        }
+
+        .card-border-color-dark {
+            border-top-color: #3d3c3c;
+        }
+
+        .card-full .card-header {
+            margin: 0;
+            padding-left: 1.538rem;
+            padding-right: 1.538rem;
+        }
+
+        .card-full .card-header .card-title {
+            border-width: 0;
+        }
+
+        .card-full-color .card-header {
+            color: #FFF;
+            padding: 27px 20px 15px;
+            margin: 0;
+        }
+
+        .card-full-color .card-body {
+            padding: 20px;
+        }
+
+        .card-full-primary {
+            background-color: #5f99f5;
+        }
+
+        .card-full-primary .card-header-contrast {
+            background-color: #6da2f6;
+            padding: 20px 20px 15px;
+            margin: 0;
+        }
+
+        .card-full-primary .tools .icon:hover {
+            color: #4287f3;
+        }
+
+        .card-full-success {
+            background-color: #37b358;
+            color: #FFF;
+        }
+
+        .card-full-success .card-header-contrast {
+            background-color: #3bbf5e;
+            padding: 20px 20px 15px;
+            margin: 0;
+        }
+
+        .card-full-success .tools .icon {
+            color: #FFF;
+        }
+
+        .card-full-success .tools .icon:hover {
+            color: #309c4c;
+        }
+
+        .card-full-warning {
+            background-color: #f6c163;
+            color: #FFF;
+        }
+
+        .card-full-warning .card-header-contrast {
+            background-color: #f7c771;
+            padding: 20px 20px 15px;
+            margin: 0;
+        }
+
+        .card-full-warning .tools .icon {
+            color: #FFF;
+        }
+
+        .card-full-warning .tools .icon:hover {
+            color: #f4b646;
+        }
+
+        .card-full-danger {
+            background-color: #eb6357;
+            color: #FFF;
+        }
+
+        .card-full-danger .card-header-contrast {
+            background-color: #ed7065;
+            padding: 20px 20px 15px;
+            margin: 0;
+        }
+
+        .card-full-danger .tools .icon {
+            color: #FFF;
+        }
+
+        .card-full-danger .tools .icon:hover {
+            color: #e84a3c;
+        }
+
+        .card-full,
+        .card-full .tools .icon {
+            color: #FFF;
+        }
+
+        .card-full {
+            background-color: #bdbdbd;
+        }
+
+        .card-full .card-header-contrast {
+            background-color: #c4c4c4;
+            padding: 20px 20px 15px;
+            margin: 0;
+        }
+
+        .card-full .tools .icon:hover {
+            color: #adadad;
+        }
+
+        .card-full-dark {
+            background-color: #333;
+            color: #FFF;
+        }
+
+        .card-full-dark .card-header-contrast {
+            background-color: #3b3b3b;
+            padding: 20px 20px 15px;
+            margin: 0;
+        }
+
+        .card-full-dark .tools .icon {
+            color: #FFF;
+        }
+
+        .card-full-dark .tools .icon:hover {
+            color: #242424;
+        }
+
+        .card-table .card-body {
+            padding: 0;
+        }
+
+        .card-fullwidth .card-header {
+            margin: 0;
+            padding-left: 1.538rem;
+            padding-right: 1.538rem;
+        }
+
+        .card-fullwidth .card-body {
+            padding-top: 16px;
+        }
+
+        .btn.active,
+        .btn:active {
+            box-shadow: none;
+        }
+
+        /* .btn {
+            box-shadow: 0 1px 0 rgba(0, 0, 0, .05);
+            border: 1px solid transparent;
+            padding: 0 10px;
+            font-size: 1rem;
+            line-height: 28px;
+            border-radius: 2px;
+        } */
+
+        .btn.active,
+        .btn:active {
+            box-shadow: none;
+        }
+
+        .btn.active.focus,
+        .btn:active:focus {
+            outline: 0;
+        }
+
+        .btn-light,
+        .btn-secondary {
+            color: #404040;
+            background-color: #FFF;
+            border-color: #dbdbdb;
+            font-weight: 600;
+        }
+
+        .btn-light.focus,
+        .btn-light:focus,
+        .btn-secondary.focus,
+        .btn-secondary:focus {
+            color: #404040;
+            background-color: #FFF;
+            border-color: #dbdbdb;
+            box-shadow: 0 1px 0 rgba(0, 0, 0, .05);
+        }
+
+        .btn-light.hover,
+        .btn-light:hover,
+        .btn-secondary.hover,
+        .btn-secondary:hover {
+            color: #404040;
+            box-shadow: 0 1px 0 rgba(0, 0, 0, .1);
+            background-color: #FFF;
+            border-color: #bababa;
+        }
+
+        .btn-secondary:not(:disabled):not(.disabled).active,
+        .btn-secondary:not(:disabled):not(.disabled):active,
+        .show>.btn-secondary.dropdown-toggle {
+            color: #FFF;
+            background-color: #6e6d6d;
+            border-color: #676767;
+        }
+
+        .btn-secondary:not(:disabled):not(.disabled).active:focus,
+        .btn-secondary:not(:disabled):not(.disabled):active:focus,
+        .show>.btn-secondary.dropdown-toggle:focus {
+            box-shadow: 0 0 0 0 rgba(135, 135, 135, .5);
+        }
+
+        .btn-light.active,
+        .btn-light.active.focus,
+        .btn-light.active:focus,
+        .btn-light.active:hover,
+        .btn-light:active,
+        .btn-light:active.focus,
+        .btn-light:active:focus,
+        .btn-light:active:hover,
+        .btn-light:not([disabled]):not(.disabled).active,
+        .btn-light:not([disabled]):not(.disabled).active.focus,
+        .btn-light:not([disabled]):not(.disabled).active:focus,
+        .btn-light:not([disabled]):not(.disabled).active:hover,
+        .btn-light:not([disabled]):not(.disabled):active,
+        .btn-light:not([disabled]):not(.disabled):active.focus,
+        .btn-light:not([disabled]):not(.disabled):active:focus,
+        .btn-light:not([disabled]):not(.disabled):active:hover,
+        .btn-secondary.active,
+        .btn-secondary.active.focus,
+        .btn-secondary.active:focus,
+        .btn-secondary.active:hover,
+        .btn-secondary:active,
+        .btn-secondary:active.focus,
+        .btn-secondary:active:focus,
+        .btn-secondary:active:hover,
+        .btn-secondary:not([disabled]):not(.disabled).active,
+        .btn-secondary:not([disabled]):not(.disabled).active.focus,
+        .btn-secondary:not([disabled]):not(.disabled).active:focus,
+        .btn-secondary:not([disabled]):not(.disabled).active:hover,
+        .btn-secondary:not([disabled]):not(.disabled):active,
+        .btn-secondary:not([disabled]):not(.disabled):active.focus,
+        .btn-secondary:not([disabled]):not(.disabled):active:focus,
+        .btn-secondary:not([disabled]):not(.disabled):active:hover,
+        .show>.btn-light.dropdown-toggle,
+        .show>.btn-light.dropdown-toggle.focus,
+        .show>.btn-light.dropdown-toggle:focus,
+        .show>.btn-light.dropdown-toggle:hover,
+        .show>.btn-secondary.dropdown-toggle,
+        .show>.btn-secondary.dropdown-toggle.focus,
+        .show>.btn-secondary.dropdown-toggle:focus,
+        .show>.btn-secondary.dropdown-toggle:hover {
+            color: #272626;
+            background-color: #e3e3e3;
+            border-color: #bababa;
+            box-shadow: inset 0 2px 0 rgba(0, 0, 0, .06);
+        }
+
+        .btn-light.active,
+        .btn-light:active,
+        .btn-secondary.active,
+        .btn-secondary:active,
+        .show>.btn-light.dropdown-toggle,
+        .show>.btn-secondary.dropdown-toggle {
+            background-image: none;
+        }
+
+        .btn-light.disabled,
+        .btn-light.disabled.active,
+        .btn-light.disabled.focus,
+        .btn-light.disabled:active,
+        .btn-light.disabled:focus,
+        .btn-light.disabled:hover,
+        .btn-light[disabled],
+        .btn-light[disabled].active,
+        .btn-light[disabled].focus,
+        .btn-light[disabled]:active,
+        .btn-light[disabled]:focus,
+        .btn-light[disabled]:hover,
+        .btn-secondary.disabled,
+        .btn-secondary.disabled.active,
+        .btn-secondary.disabled.focus,
+        .btn-secondary.disabled:active,
+        .btn-secondary.disabled:focus,
+        .btn-secondary.disabled:hover,
+        .btn-secondary[disabled],
+        .btn-secondary[disabled].active,
+        .btn-secondary[disabled].focus,
+        .btn-secondary[disabled]:active,
+        .btn-secondary[disabled]:focus,
+        .btn-secondary[disabled]:hover,
+        fieldset[disabled] .btn-light,
+        fieldset[disabled] .btn-light.active,
+        fieldset[disabled] .btn-light.focus,
+        fieldset[disabled] .btn-light:active,
+        fieldset[disabled] .btn-light:focus,
+        fieldset[disabled] .btn-light:hover,
+        fieldset[disabled] .btn-secondary,
+        fieldset[disabled] .btn-secondary.active,
+        fieldset[disabled] .btn-secondary.focus,
+        fieldset[disabled] .btn-secondary:active,
+        fieldset[disabled] .btn-secondary:focus,
+        fieldset[disabled] .btn-secondary:hover {
+            background-color: #FFF;
+            border-color: #dbdbdb;
+        }
+
+        .btn-light .icon,
+        .btn-secondary .icon {
+            color: #646464;
+        }
+
+        .btn-light:active .icon,
+        .btn-secondary:active .icon {
+            color: #4a4a4a;
+        }
+
+        .btn-light .badge,
+        .btn-secondary .badge {
+            color: #FFF;
+            background-color: #404040;
+        }
+
+        .btn-group>.btn.btn-secondary.active+.btn,
+        .btn-group>.btn.btn-secondary:hover+.btn,
+        .input-group-append>.btn.btn-secondary.active+.btn,
+        .input-group-append>.btn.btn-secondary:hover+.btn,
+        .input-group-btn>.btn.btn-secondary.active+.btn,
+        .input-group-btn>.btn.btn-secondary:hover+.btn,
+        .input-group-prepend>.btn.btn-secondary.active+.btn,
+        .input-group-prepend>.btn.btn-secondary:hover+.btn {
+            border-left-color: #bababa;
+        }
+
+        .btn-secondary.disabled,
+        .btn-secondary:disabled {
+            color: #FFF;
+            background-color: #878787;
+            border-color: #878787;
+        }
+
+
+        .input-group-addon {
+            background-color: #ea4335;
+            color: #FFF;
+            font-weight: 600;
+            width: 80px;
+            border: none;
+            border-radius: 10px
+        }
+
+        .form-group .title {
+            display: inline-block;
+            text-align: center;
+            font-size: 16px;
+            max-width: 200px;
+
+        }
+
+        .form-group .title:first-child {
+            width: 80px
+        }
+    </style>
 
     <script type='text/javascript' src='http://projetopokerpro.com.br/wp-content/themes/pokerpro/assets/js/jquery.js?ver=20150825'></script>
     <script type='text/javascript' src='http://projetopokerpro.com.br/wp-content/themes/pokerpro/assets/js/bootstrap.min.js?ver=3.3.5'></script>
@@ -46,20 +773,38 @@
         var blinds = [12, 10, 8, 6];
         var pos = ['utg', 'utg+1', 'mp', 'mp+1', 'hj', 'co', 'btn', 'sb'];
 
-        $(document).ready(function() {
-            var htmlBBs = '';
-            var htmlPTA = '';
+        $(document).ready(function () {
 
-            for (var item of blinds) { 
-                htmlBBs += '<label class="btn btn-primary"><input type="radio" name="bbs" value="' + item + '">' + item + '</label>';
+
+
+            for (var item of blinds) {
+                var htmlPTA = '';
+
+                htmlPTA += '<div class="btn-group input-group" role="group" data-toggle="buttons"><span class="input-group-addon" value="' + item + '">' + item + ' BB</span>';
+                for (var i = 0; i < pos.length; i++) {
+                    htmlPTA += '<label class="btn btn-secondary"><input type="radio" name="pta" value="' + item.toString() + (i + 1) + '">' + pos[i] + '</label>';
+                }
+                htmlPTA += '</div><br>'
+
+                $('.pta').append(htmlPTA);
+                htmlPTA = '';
+htmlPTA += '<a href="#" class="list-group-item"><h4 class="list-group-item-heading">'+ item +' BB</h4><p class="list-group-item-text btn-group" role="group" data-toggle="buttons">';
+                for (var i = 0; i < pos.length; i++) {
+                    htmlPTA += '<label class="btn btn-secondary"><input type="radio" name="pta" value="' + item.toString() + (i + 1) + '">' + pos[i] + '</label>';
+                }
+                htmlPTA += '</p></a>'
+
+                $('.pta-2').append(htmlPTA);
+
+                                                
+                                        
             }
 
             for (var i = 0; i < pos.length; i++) {
-                htmlPTA += '<label class="btn btn-primary"><input type="radio" name="pta" value="' + (i + 1) + '">' + pos[i] + '</label>';
+                htmlPTA += '<label class="btn btn-secondary"><input type="radio" name="pta" value="' + (i + 1) + '">' + pos[i] + '</label>';
             }
 
-            $('.bbs').append(htmlBBs);
-            $('.pta').append(htmlPTA);
+
 
         });
     </script>
@@ -67,93 +812,87 @@
 
 <body>
     <main id="project">
-    <div class="container">
-        <div class="page-header">
-            <h2>Projeto Poker Pro <small>Range</small></h2>
-        </div>
-
-        <div class="row">
-            <div class="col-md-12 text-center">
-                    <div class="form-group">
-                        <label>Antes (%)</label>
-                        <div>
-                            <div class="btn-group" role="group" data-toggle="buttons">
-                                <label class="btn btn-primary active"><input type="radio" name="optionsRadios">10</label>
-                                <label class="btn btn-primary"><input type="radio" name="optionsRadios">12</label>
-                                <label class="btn btn-primary"><input type="radio" name="optionsRadios">13</label>
-                                <label class="btn btn-primary"><input type="radio" name="optionsRadios">15</label>
-                            </div>
-                        </div>
-                    </div>
+        <div class="container">
+            <div class="page-header">
+                <h2>Projeto Poker Pro
+                    <small>Range</small>
+                </h2>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="col-md-6">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h2 class="panel-title">Push</h2>
-                    </div>
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4">
+                        <div class="card card-border text-center">
+                                <div class="card-header ">Antes (%)</div>
+        
+                                <div class="card-body">
+                                        <div class="button-toolbar">
+                                                <div class="btn-group" role="group" data-toggle="buttons">
+                                                    <label class="btn btn-secondary">
+                                                        <input type="radio" name="optionsRadios">10</label>
+                                                    <label class="btn btn-secondary active">
+                                                        <input type="radio" name="optionsRadios">12</label>
+                                                    <label class="btn btn-secondary">
+                                                        <input type="radio" name="optionsRadios">13</label>
+                                                    <label class="btn btn-secondary">
+                                                        <input type="radio" name="optionsRadios">15</label>
+                                                </div>
+                                            </div>
+                                </div>
+                        </div>
 
-                    <div class="panel-body">
+                    
+                    <h3></h3>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card card-border card-contrast card-border-color card-border-color-danger">
+                        <div class="card-header card-header-contrast">Push</div>
+
+                        <div class="card-body">
                             <div class="form-group">
-                                    <label>BB</label>
-                                    <div>
-                                        <div class="btn-group bbs" role="group" data-toggle="buttons">
-                                        </div>
+
+                                <div>
+                                    <div class="pta">
                                     </div>
                                 </div>
-                
-                        <div class="form-group">
-                            <label>Players to Act</label>
-                            <div>
-                                <div class="btn-group pta" role="group" data-toggle="buttons">
-                                </div>
                             </div>
-                        </div>
 
-                        <div>
-                            <img src="https://themes.getbootstrap.com/wp-content/uploads/2018/02/BS_Dashboard-768x576.png"
-                                class="img-responsive center-block img-rounded">
+                            <div>
+                                <img src="https://themes.getbootstrap.com/wp-content/uploads/2018/02/BS_Dashboard-768x576.png" class="img-responsive center-block img-rounded">
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
 
-            <div class="col-md-6">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Call</h3>
-                    </div>
+                <div class="col-md-6">
+                    <div class="card card-border card-contrast card-border-color card-border-color-danger">
+                        <div class="card-header card-header-contrast">Call</div>
 
-                    <div class="panel-body">
-                        <div class="form-group">
-                            <label>BB</label>
-                            <div>
-                                <div class="btn-group bbs" role="group" data-toggle="buttons">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <div>
+                                    <div>
+                                        <div class="pta-2" class="list-group">
+                                        </div>
+                                        
+                                                
+                                    </div>
                                 </div>
-                            </div>
-                        </div>                        
-                        <div class="form-group">
-                            <label>Players to Act</label>
-                            <div>
-                                <div class="btn-group pta" role="group" data-toggle="buttons">
+<br>
+                                <div>
+                                    <img src="https://themes.getbootstrap.com/wp-content/uploads/2018/02/BS_Marketing-768x576.png" class="img-responsive center-block img-rounded">
                                 </div>
                             </div>
                         </div>
-
-                        <div>
-                            <img src="https://themes.getbootstrap.com/wp-content/uploads/2018/02/BS_Marketing-768x576.png"
-                                class="img-responsive center-block img-rounded">
-                        </div>
                     </div>
+
                 </div>
             </div>
-
-        </div>
-    </div>
-</main>
+    </main>
 </body>
 
 </html>
