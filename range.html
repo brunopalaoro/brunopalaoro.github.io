@@ -742,6 +742,9 @@
             border-color: #878787;
         }
 
+        .card-header {
+            font-weight: 700;
+        }
 
         .input-group-addon {
             background-color: #ea4335;
@@ -749,7 +752,23 @@
             font-weight: 600;
             width: 80px;
             border: none;
-            border-radius: 10px
+            border-radius: 10px;
+            font-size: 16px;
+        }
+
+        .list-group-item-heading {
+            
+            font-weight: 700;
+        }
+
+        .list-group-item-heading small {
+            font-weight: 400;
+            /* font-size: 90%; */
+        }
+
+        .input-group-addon small {
+            /* font-size: 90%; */
+            font-weight: 400;
         }
 
         .form-group .title {
@@ -757,7 +776,6 @@
             text-align: center;
             font-size: 16px;
             max-width: 200px;
-
         }
 
         .form-group .title:first-child {
@@ -769,18 +787,22 @@
     <script type='text/javascript' src='http://projetopokerpro.com.br/wp-content/themes/pokerpro/assets/js/bootstrap.min.js?ver=3.3.5'></script>
 
     <script type="text/javascript">
-        var antes = [10, 12, 13, 15];
+        var ante = [10, 12.5, 20];
         var blinds = [12, 10, 8, 6];
         var pos = ['utg', 'utg+1', 'mp', 'mp+1', 'hj', 'co', 'btn', 'sb'];
 
         $(document).ready(function () {
+            var htmlAnte = '';
+            for (var item of ante) {
+                htmlAnte += '<label class="btn btn-secondary"><input type="radio" name="ante" value="'+item+'">'+item+' </label>';
+            }
 
-
+            $('.ante').append(htmlAnte);
 
             for (var item of blinds) {
                 var htmlPTA = '';
 
-                htmlPTA += '<div class="btn-group input-group" role="group" data-toggle="buttons"><span class="input-group-addon" value="' + item + '">' + item + ' BB</span>';
+                htmlPTA += '<div class="btn-group input-group" role="group" data-toggle="buttons"><span class="input-group-addon" value="' + item + '">' + item + ' <small>BB</small></span>';
                 for (var i = 0; i < pos.length; i++) {
                     htmlPTA += '<label class="btn btn-secondary"><input type="radio" name="pta" value="' + item.toString() + (i + 1) + '">' + pos[i] + '</label>';
                 }
@@ -788,24 +810,18 @@
 
                 $('.pta').append(htmlPTA);
                 htmlPTA = '';
-                htmlPTA += '<a href="#" class="list-group-item"><h4 class="list-group-item-heading">' + item + ' BB</h4><p class="list-group-item-text btn-group" role="group" data-toggle="buttons">';
+                htmlPTA += '<a href="#" class="list-group-item"><h4 class="list-group-item-heading">' + item + ' <small>BB</small></h4><p class="list-group-item-text btn-group" role="group" data-toggle="buttons">';
                 for (var i = 0; i < pos.length; i++) {
                     htmlPTA += '<label class="btn btn-secondary"><input type="radio" name="pta" value="' + item.toString() + (i + 1) + '">' + pos[i] + '</label>';
                 }
                 htmlPTA += '</p></a>'
 
                 $('.pta-2').append(htmlPTA);
-
-
-
             }
 
             for (var i = 0; i < pos.length; i++) {
                 htmlPTA += '<label class="btn btn-secondary"><input type="radio" name="pta" value="' + (i + 1) + '">' + pos[i] + '</label>';
             }
-
-
-
         });
     </script>
 </head>
@@ -822,19 +838,11 @@
             <div class="row">
                 <div class="col-md-4 col-md-offset-4">
                     <div class="card card-border card-contrast card-border-color card-border-color-danger">
-                        <div class="card-header card-header-contrast">Antes (%)</div>
+                        <div class="card-header card-header-contrast">Ante (%)</div>
 
                         <div class="card-body text-center">
                             <div class="button-toolbar">
-                                <div class="btn-group" role="group" data-toggle="buttons">
-                                    <label class="btn btn-secondary">
-                                        <input type="radio" name="optionsRadios">10</label>
-                                    <label class="btn btn-secondary active">
-                                        <input type="radio" name="optionsRadios">12</label>
-                                    <label class="btn btn-secondary">
-                                        <input type="radio" name="optionsRadios">13</label>
-                                    <label class="btn btn-secondary">
-                                        <input type="radio" name="optionsRadios">15</label>
+                                <div class="btn-group ante" role="group" data-toggle="buttons">
                                 </div>
                             </div>
                         </div>
