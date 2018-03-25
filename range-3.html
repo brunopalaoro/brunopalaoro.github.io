@@ -452,8 +452,7 @@
 
             var htmlPTA = '';
             for (var i = 0; i < pos.length; i++) {
-                var value = item + '-' + (i + 1);
-                htmlPTA += '<label class="btn btn-secondary"><input type="radio" name="pta" value="' + value + '">' + pos[i] + '</label>';
+                htmlPTA += '<label class="btn btn-secondary"><input type="radio" name="pta" value="' + i + '">' + pos[i] + '</label>';
             }
 
             $('.pta').append(htmlPTA);
