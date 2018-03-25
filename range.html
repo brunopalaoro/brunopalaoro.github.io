@@ -5,25 +5,7 @@
     <meta charset="utf-8">
 
     <title>Projeto Poker Pro - Range</title>
-    <!-- 
-     <link rel='stylesheet' id='illdy-pace-css' href='http://projetopokerpro.com.br/wp-content/themes/illdy/layout/css/pace.min.css?ver=4.8.5'
-        type='text/css' media='all' />
-    <link rel='stylesheet' id='font-awesome-css' href='http://projetopokerpro.com.br/wp-content/themes/illdy/layout/css/font-awesome.min.css?ver=4.5.0'
-        type='text/css' media='all' />
-    <link rel='stylesheet' id='illdy-main-css' href='http://projetopokerpro.com.br/wp-content/themes/illdy/layout/css/main.css?ver=4.8.5'
-        type='text/css' media='all' />
-    <link rel='stylesheet' id='illdy-custom-css' href='http://projetopokerpro.com.br/wp-content/themes/illdy/layout/css/custom.min.css?ver=4.8.5'
-        type='text/css' media='all' />
-    <link rel='stylesheet' id='illdy-style-css' href='http://projetopokerpro.com.br/wp-content/themes/pokerpro/style.css?ver=1.0.16'
-        type='text/css' media='all' />
-        <link rel='stylesheet' id='illdy-style-css'  href='http://projetopokerpro.com.br/wp-content/themes/pokerpro/style.css?ver=1.0.16' type='text/css' media='all' />
-        <link rel='stylesheet' id='parent-style-css'  href='http://projetopokerpro.com.br/wp-content/themes/illdy/main.css?ver=4.8.5' type='text/css' media='all' />
-        <link rel='stylesheet' id='child-style-css'  href='http://projetopokerpro.com.br/wp-content/themes/pokerpro/assets/css/main.css?ver=4.8.5' type='text/css' media='all' />
 
-    <script type='text/javascript' src='http://projetopokerpro.com.br/wp-content/themes/pokerpro/assets/js/jquery.js?ver=20150825'></script>
-    <script type='text/javascript' src='http://projetopokerpro.com.br/wp-content/themes/pokerpro/assets/js/bootstrap.min.js?ver=3.3.5'></script>
-
-     -->
     <link rel='stylesheet' id='bootstrap-css' href='http://projetopokerpro.com.br/wp-content/themes/illdy/layout/css/bootstrap.min.css?ver=3.3.6'
         type='text/css' media='all' />
     <link rel='stylesheet' id='bootstrap-theme-css' href='http://projetopokerpro.com.br/wp-content/themes/illdy/layout/css/bootstrap-theme.min.css?ver=3.3.6'
@@ -31,12 +13,6 @@
 
 
     <style>
-        /* body  {
-            background: linear-gradient(to top, transparent 5%, #000 100%);
-             background: #191919;
-            color: #fff;
-        }  */
-
         .card-footer,
         .card-header {
             padding: .7692rem 1.538rem;
@@ -54,16 +30,6 @@
 
         .card>hr {
             margin-right: 0;
-        }
-
-        .card>.list-group:first-child .list-group-item:first-child {
-            border-top-left-radius: 3px;
-            border-top-right-radius: 3px;
-        }
-
-        .card>.list-group:last-child .list-group-item:last-child {
-            border-bottom-right-radius: 3px;
-            border-bottom-left-radius: 3px;
         }
 
         .card-body {
@@ -88,22 +54,12 @@
             margin-left: 1.538rem;
         }
 
-        .card-header-pills,
-        .card-header-tabs {
-            margin-right: -.769rem;
-            margin-left: -.769rem;
-        }
-
         .card-header {
             border-bottom: 1px solid rgba(0, 0, 0, .125);
         }
 
         .card-header:first-child {
             border-radius: calc(3px - 1px) calc(3px - 1px) 0 0;
-        }
-
-        .card-header+.list-group .list-group-item:first-child {
-            border-top: 0;
         }
 
         .card-footer {
@@ -113,37 +69,6 @@
 
         .card-footer:last-child {
             border-radius: 0 0 calc(3px - 1px) calc(3px - 1px);
-        }
-
-        .card-header-tabs {
-            margin-bottom: -.7692rem;
-            border-bottom: 0;
-        }
-
-        .card-img-overlay {
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            padding: 1.25rem;
-        }
-
-        .card-img {
-            width: 100%;
-            border-radius: calc(3px - 1px);
-        }
-
-        .card-img-top {
-            width: 100%;
-            border-top-left-radius: calc(3px - 1px);
-            border-top-right-radius: calc(3px - 1px);
-        }
-
-        .card-img-bottom {
-            width: 100%;
-            border-bottom-right-radius: calc(3px - 1px);
-            border-bottom-left-radius: calc(3px - 1px);
         }
 
         .card-deck {
@@ -177,91 +102,6 @@
             }
         }
 
-        .card-group {
-            display: -ms-flexbox;
-            display: flex;
-            -ms-flex-direction: column;
-            flex-direction: column;
-        }
-
-        .card-group>.card {
-            margin-bottom: 15px;
-        }
-
-        @media (min-width:576px) {
-            .card-group {
-                -ms-flex-flow: row wrap;
-                flex-flow: row wrap;
-            }
-            .card-group>.card {
-                -ms-flex: 1 0 0%;
-                flex: 1 0 0%;
-                margin-bottom: 0;
-            }
-            .card-group>.card+.card {
-                margin-left: 0;
-                border-left: 0;
-            }
-            .card-group>.card:first-child {
-                border-top-right-radius: 0;
-                border-bottom-right-radius: 0;
-            }
-            .card-group>.card:first-child .card-header,
-            .card-group>.card:first-child .card-img-top {
-                border-top-right-radius: 0;
-            }
-            .card-group>.card:first-child .card-footer,
-            .card-group>.card:first-child .card-img-bottom {
-                border-bottom-right-radius: 0;
-            }
-            .card-group>.card:last-child {
-                border-top-left-radius: 0;
-                border-bottom-left-radius: 0;
-            }
-            .card-group>.card:last-child .card-header,
-            .card-group>.card:last-child .card-img-top {
-                border-top-left-radius: 0;
-            }
-            .card-group>.card:last-child .card-footer,
-            .card-group>.card:last-child .card-img-bottom {
-                border-bottom-left-radius: 0;
-            }
-            .card-group>.card:only-child {
-                border-radius: 3px;
-            }
-            .card-group>.card:only-child .card-header,
-            .card-group>.card:only-child .card-img-top {
-                border-top-left-radius: 3px;
-                border-top-right-radius: 3px;
-            }
-            .card-group>.card:only-child .card-footer,
-            .card-group>.card:only-child .card-img-bottom {
-                border-bottom-right-radius: 3px;
-                border-bottom-left-radius: 3px;
-            }
-            .card-group>.card:not(:first-child):not(:last-child):not(:only-child),
-            .card-group>.card:not(:first-child):not(:last-child):not(:only-child) .card-footer,
-            .card-group>.card:not(:first-child):not(:last-child):not(:only-child) .card-header,
-            .card-group>.card:not(:first-child):not(:last-child):not(:only-child) .card-img-bottom,
-            .card-group>.card:not(:first-child):not(:last-child):not(:only-child) .card-img-top {
-                border-radius: 0;
-            }
-            .card-columns {
-                -webkit-column-count: 3;
-                column-count: 3;
-                -webkit-column-gap: 1.25rem;
-                column-gap: 1.25rem;
-            }
-            .card-columns .card {
-                display: inline-block;
-                width: 100%
-            }
-        }
-
-        .card-columns .card {
-            margin-bottom: .7692rem;
-        }
-
         .card {
             background-color: #FFF;
             margin-bottom: 25px;
@@ -269,11 +109,6 @@
             border-width: 0;
             border-radius: 3px;
             display: block;
-        }
-
-        .card th {
-            border-top: 0;
-            vertical-align: middle;
         }
 
         .card-body {
@@ -293,34 +128,6 @@
             background-color: transparent;
         }
 
-        .card-header .tools {
-            float: right;
-            font-size: 0;
-        }
-
-        .card-header .tools>a {
-            display: inline-block;
-        }
-
-        .card-header .tools .icon {
-            display: inline-block;
-            font-size: 1.538rem;
-            line-height: 25px;
-            vertical-align: middle;
-            cursor: pointer;
-            color: #bababa;
-            min-width: 1.538rem;
-            text-align: center;
-        }
-
-        .card-header .tools .icon+.icon {
-            margin-left: 2px;
-        }
-
-        .card-header .tools .icon:hover {
-            color: #a6a6a6;
-        }
-
         .card-title {
             font-size: 18px;
             font-weight: 300;
@@ -334,26 +141,6 @@
             color: #707070;
             margin-top: 0;
             margin-bottom: .4615rem;
-        }
-
-        .card-full-color .card-header .card-subtitle,
-        .card-full-color .card-header .icon,
-        .card-full-primary,
-        .card-full-primary .tools .icon {
-            color: #FFF;
-        }
-
-        .card-header-divider {
-            border-bottom: 1px solid #d9d9d9;
-            margin: 0 1.538rem 8px;
-            padding-left: 0;
-            padding-right: 0;
-            padding-bottom: 1.2307rem;
-        }
-
-        .card-header-divider .card-subtitle {
-            margin-top: 0;
-            margin-bottom: 0;
         }
 
         .card-flat {
@@ -404,162 +191,10 @@
             border-top-color: #3d3c3c;
         }
 
-        .card-full .card-header {
-            margin: 0;
-            padding-left: 1.538rem;
-            padding-right: 1.538rem;
-        }
-
-        .card-full .card-header .card-title {
-            border-width: 0;
-        }
-
-        .card-full-color .card-header {
-            color: #FFF;
-            padding: 27px 20px 15px;
-            margin: 0;
-        }
-
-        .card-full-color .card-body {
-            padding: 20px;
-        }
-
-        .card-full-primary {
-            background-color: #5f99f5;
-        }
-
-        .card-full-primary .card-header-contrast {
-            background-color: #6da2f6;
-            padding: 20px 20px 15px;
-            margin: 0;
-        }
-
-        .card-full-primary .tools .icon:hover {
-            color: #4287f3;
-        }
-
-        .card-full-success {
-            background-color: #37b358;
-            color: #FFF;
-        }
-
-        .card-full-success .card-header-contrast {
-            background-color: #3bbf5e;
-            padding: 20px 20px 15px;
-            margin: 0;
-        }
-
-        .card-full-success .tools .icon {
-            color: #FFF;
-        }
-
-        .card-full-success .tools .icon:hover {
-            color: #309c4c;
-        }
-
-        .card-full-warning {
-            background-color: #f6c163;
-            color: #FFF;
-        }
-
-        .card-full-warning .card-header-contrast {
-            background-color: #f7c771;
-            padding: 20px 20px 15px;
-            margin: 0;
-        }
-
-        .card-full-warning .tools .icon {
-            color: #FFF;
-        }
-
-        .card-full-warning .tools .icon:hover {
-            color: #f4b646;
-        }
-
-        .card-full-danger {
-            background-color: #eb6357;
-            color: #FFF;
-        }
-
-        .card-full-danger .card-header-contrast {
-            background-color: #ed7065;
-            padding: 20px 20px 15px;
-            margin: 0;
-        }
-
-        .card-full-danger .tools .icon {
-            color: #FFF;
-        }
-
-        .card-full-danger .tools .icon:hover {
-            color: #e84a3c;
-        }
-
-        .card-full,
-        .card-full .tools .icon {
-            color: #FFF;
-        }
-
-        .card-full {
-            background-color: #bdbdbd;
-        }
-
-        .card-full .card-header-contrast {
-            background-color: #c4c4c4;
-            padding: 20px 20px 15px;
-            margin: 0;
-        }
-
-        .card-full .tools .icon:hover {
-            color: #adadad;
-        }
-
-        .card-full-dark {
-            background-color: #333;
-            color: #FFF;
-        }
-
-        .card-full-dark .card-header-contrast {
-            background-color: #3b3b3b;
-            padding: 20px 20px 15px;
-            margin: 0;
-        }
-
-        .card-full-dark .tools .icon {
-            color: #FFF;
-        }
-
-        .card-full-dark .tools .icon:hover {
-            color: #242424;
-        }
-
-        .card-table .card-body {
-            padding: 0;
-        }
-
-        .card-fullwidth .card-header {
-            margin: 0;
-            padding-left: 1.538rem;
-            padding-right: 1.538rem;
-        }
-
-        .card-fullwidth .card-body {
-            padding-top: 16px;
-        }
-
         .btn.active,
         .btn:active {
             box-shadow: none;
         }
-
-        /* .btn {
-            box-shadow: 0 1px 0 rgba(0, 0, 0, .05);
-            border: 1px solid transparent;
-            padding: 0 10px;
-            font-size: 1rem;
-            line-height: 28px;
-            border-radius: 2px;
-        } */
 
         .btn.active,
         .btn:active {
@@ -571,7 +206,6 @@
             outline: 0;
         }
 
-        .btn-light,
         .btn-secondary {
             color: #404040;
             background-color: #FFF;
@@ -579,8 +213,6 @@
             font-weight: 600;
         }
 
-        .btn-light.focus,
-        .btn-light:focus,
         .btn-secondary.focus,
         .btn-secondary:focus {
             color: #404040;
@@ -589,8 +221,6 @@
             box-shadow: 0 1px 0 rgba(0, 0, 0, .05);
         }
 
-        .btn-light.hover,
-        .btn-light:hover,
         .btn-secondary.hover,
         .btn-secondary:hover {
             color: #404040;
@@ -613,22 +243,6 @@
             box-shadow: 0 0 0 0 rgba(135, 135, 135, .5);
         }
 
-        .btn-light.active,
-        .btn-light.active.focus,
-        .btn-light.active:focus,
-        .btn-light.active:hover,
-        .btn-light:active,
-        .btn-light:active.focus,
-        .btn-light:active:focus,
-        .btn-light:active:hover,
-        .btn-light:not([disabled]):not(.disabled).active,
-        .btn-light:not([disabled]):not(.disabled).active.focus,
-        .btn-light:not([disabled]):not(.disabled).active:focus,
-        .btn-light:not([disabled]):not(.disabled).active:hover,
-        .btn-light:not([disabled]):not(.disabled):active,
-        .btn-light:not([disabled]):not(.disabled):active.focus,
-        .btn-light:not([disabled]):not(.disabled):active:focus,
-        .btn-light:not([disabled]):not(.disabled):active:hover,
         .btn-secondary.active,
         .btn-secondary.active.focus,
         .btn-secondary.active:focus,
@@ -645,10 +259,6 @@
         .btn-secondary:not([disabled]):not(.disabled):active.focus,
         .btn-secondary:not([disabled]):not(.disabled):active:focus,
         .btn-secondary:not([disabled]):not(.disabled):active:hover,
-        .show>.btn-light.dropdown-toggle,
-        .show>.btn-light.dropdown-toggle.focus,
-        .show>.btn-light.dropdown-toggle:focus,
-        .show>.btn-light.dropdown-toggle:hover,
         .show>.btn-secondary.dropdown-toggle,
         .show>.btn-secondary.dropdown-toggle.focus,
         .show>.btn-secondary.dropdown-toggle:focus,
@@ -659,27 +269,12 @@
             box-shadow: inset 0 2px 0 rgba(0, 0, 0, .06);
         }
 
-        .btn-light.active,
-        .btn-light:active,
         .btn-secondary.active,
         .btn-secondary:active,
-        .show>.btn-light.dropdown-toggle,
         .show>.btn-secondary.dropdown-toggle {
             background-image: none;
         }
 
-        .btn-light.disabled,
-        .btn-light.disabled.active,
-        .btn-light.disabled.focus,
-        .btn-light.disabled:active,
-        .btn-light.disabled:focus,
-        .btn-light.disabled:hover,
-        .btn-light[disabled],
-        .btn-light[disabled].active,
-        .btn-light[disabled].focus,
-        .btn-light[disabled]:active,
-        .btn-light[disabled]:focus,
-        .btn-light[disabled]:hover,
         .btn-secondary.disabled,
         .btn-secondary.disabled.active,
         .btn-secondary.disabled.focus,
@@ -692,12 +287,6 @@
         .btn-secondary[disabled]:active,
         .btn-secondary[disabled]:focus,
         .btn-secondary[disabled]:hover,
-        fieldset[disabled] .btn-light,
-        fieldset[disabled] .btn-light.active,
-        fieldset[disabled] .btn-light.focus,
-        fieldset[disabled] .btn-light:active,
-        fieldset[disabled] .btn-light:focus,
-        fieldset[disabled] .btn-light:hover,
         fieldset[disabled] .btn-secondary,
         fieldset[disabled] .btn-secondary.active,
         fieldset[disabled] .btn-secondary.focus,
@@ -706,22 +295,6 @@
         fieldset[disabled] .btn-secondary:hover {
             background-color: #FFF;
             border-color: #dbdbdb;
-        }
-
-        .btn-light .icon,
-        .btn-secondary .icon {
-            color: #646464;
-        }
-
-        .btn-light:active .icon,
-        .btn-secondary:active .icon {
-            color: #4a4a4a;
-        }
-
-        .btn-light .badge,
-        .btn-secondary .badge {
-            color: #FFF;
-            background-color: #404040;
         }
 
         .btn-group>.btn.btn-secondary.active+.btn,
@@ -757,7 +330,6 @@
         }
 
         .list-group-item-heading {
-            
             font-weight: 700;
         }
 
@@ -781,6 +353,25 @@
         .form-group .title:first-child {
             width: 80px
         }
+
+        div.img-rounded {
+            width: 513px;
+            height: 385px;
+            border: 1px solid #d4d4d4;
+            text-align: center;
+        }
+
+        .list-group-item.active,
+        .list-group-item.active:focus,
+        .list-group-item.active:hover {
+            background-image: -webkit-linear-gradient(top, #ea4335 0, #ea4335 100%);
+            background-image: -o-linear-gradient(top, #ea4335 0, #ea4335 100%);
+            background-image: -webkit-gradient(linear, left top, left bottom, from(#337ab7), to(#ea4335));
+            background-image: linear-gradient(to bottom, #ea4335 0, #ea4335 100%);
+            text-shadow: none;
+            background-image: linear-gradient(to bottom, #ea4335 0, #ea4335 100%);
+            border-color: #ea4335;
+        }
     </style>
 
     <script type='text/javascript' src='http://projetopokerpro.com.br/wp-content/themes/pokerpro/assets/js/jquery.js?ver=20150825'></script>
@@ -794,7 +385,7 @@
         $(document).ready(function () {
             var htmlAnte = '';
             for (var item of ante) {
-                htmlAnte += '<label class="btn btn-secondary"><input type="radio" name="ante" value="'+item+'">'+item+' </label>';
+                htmlAnte += '<label class="btn btn-secondary"><input type="radio" name="ante" value="' + item + '">' + item + ' </label>';
             }
 
             $('.ante').append(htmlAnte);
@@ -802,27 +393,60 @@
             for (var item of blinds) {
                 var htmlPTA = '';
 
-                htmlPTA += '<div class="btn-group input-group" role="group" data-toggle="buttons"><span class="input-group-addon" value="' + item + '">' + item + ' <small>BB</small></span>';
+                htmlPTA += '<div class="btn-group input-group bb-'+item+'" role="group" data-toggle="buttons"><span class="input-group-addon" value="' + item + '">' + item + ' <small>BB</small></span>';
                 for (var i = 0; i < pos.length; i++) {
-                    htmlPTA += '<label class="btn btn-secondary"><input type="radio" name="pta" value="' + item.toString() + (i + 1) + '">' + pos[i] + '</label>';
+                    var value = item + '-' + (i + 1);
+                    htmlPTA += '<label class="btn btn-secondary"><input type="radio" name="pta" value="' + value + '">' + pos[i] + '</label>';
                 }
                 htmlPTA += '</div><br>'
 
-                $('.pta').append(htmlPTA);
+                $('.push .pta').append(htmlPTA);
+                $('.push  .pta .bb-' + item + ' input').change(function () {
+                    $('.push .pta .btn.active').not($(this).parent()).removeClass('active');
+                    selectImage();
+                });
+
                 htmlPTA = '';
-                htmlPTA += '<a href="#" class="list-group-item"><h4 class="list-group-item-heading">' + item + ' <small>BB</small></h4><p class="list-group-item-text btn-group" role="group" data-toggle="buttons">';
+                htmlPTA += '<a href="#" class="list-group-item bb-'+item+'""><h4 class="list-group-item-heading">' + item + ' <small>BB</small></h4><p class="list-group-item-text btn-group" role="group" data-toggle="buttons">';
                 for (var i = 0; i < pos.length; i++) {
-                    htmlPTA += '<label class="btn btn-secondary"><input type="radio" name="pta" value="' + item.toString() + (i + 1) + '">' + pos[i] + '</label>';
+                    var value = item + '-' + (i + 1);
+                    htmlPTA += '<label class="btn btn-secondary"><input type="radio" name="pta" value="' + value + '">' + pos[i] + '</label>';
                 }
                 htmlPTA += '</p></a>'
 
-                $('.pta-2').append(htmlPTA);
+                $('.call .pta').append(htmlPTA);
+
+                $('.call .pta .bb-' + item + ' input').change(function () {
+                    $('.call .list-group-item').removeClass('active');
+                    var parent = $(this).parents('.list-group-item');
+                    parent.addClass('active');
+                    $('.call .pta .btn.active').not($(this).parent()).removeClass('active');
+                    selectImage();
+                });
             }
 
+            $('.ante input').change(function () {
+                selectImage();
+            });
             for (var i = 0; i < pos.length; i++) {
                 htmlPTA += '<label class="btn btn-secondary"><input type="radio" name="pta" value="' + (i + 1) + '">' + pos[i] + '</label>';
             }
         });
+
+        function selectImage() {
+            var ante = $('.ante .btn.active input').val();
+            var ptaPush = $('.push .pta .btn.active input').val();
+            var ptaCall = $('.call .pta .btn.active input').val();
+
+            if (ante && ptaPush) {
+                $('.push .img-rounded').html(ante + '-' + ptaPush);
+            }
+
+            if (ante && ptaCall) {
+                $('.call .img-rounded').html(ante + '-' + ptaCall);
+            }
+
+        }
     </script>
 </head>
 
@@ -839,7 +463,6 @@
                 <div class="col-md-4 col-md-offset-4">
                     <div class="card card-border card-contrast card-border-color card-border-color-danger">
                         <div class="card-header card-header-contrast">Ante (%)</div>
-
                         <div class="card-body text-center">
                             <div class="button-toolbar">
                                 <div class="btn-group ante" role="group" data-toggle="buttons">
@@ -851,49 +474,39 @@
             </div>
 
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6 push">
                     <div class="card card-border card-contrast card-border-color card-border-color-danger">
                         <div class="card-header card-header-contrast">Push</div>
-
                         <div class="card-body">
                             <div class="form-group">
-
                                 <div>
                                     <div class="pta">
                                     </div>
                                 </div>
                             </div>
-
-                            <div>
-                                <img src="https://themes.getbootstrap.com/wp-content/uploads/2018/02/BS_Dashboard-768x576.png" class="img-responsive center-block img-rounded">
+                            <div class="img-rounded">
                             </div>
                         </div>
                     </div>
                 </div>
 
-
-                <div class="col-md-6">
+                <div class="col-md-6 call">
                     <div class="card card-border card-contrast card-border-color card-border-color-danger">
                         <div class="card-header card-header-contrast">Call</div>
-
                         <div class="card-body">
                             <div class="form-group">
                                 <div>
                                     <div>
-                                        <div class="pta-2" class="list-group">
+                                        <div class="pta" class="list-group">
                                         </div>
-
-
                                     </div>
                                 </div>
                                 <br>
-                                <div>
-                                    <img src="https://themes.getbootstrap.com/wp-content/uploads/2018/02/BS_Marketing-768x576.png" class="img-responsive center-block img-rounded">
+                                <div class="img-rounded">
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
     </main>
