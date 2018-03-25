@@ -1,0 +1,554 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Projeto Poker Pro - Range</title>
+
+    <link rel='stylesheet' id='bootstrap-css' href='http://projetopokerpro.com.br/wp-content/themes/illdy/layout/css/bootstrap.min.css?ver=3.3.6'
+        type='text/css' media='all' />
+    <link rel='stylesheet' id='bootstrap-theme-css' href='http://projetopokerpro.com.br/wp-content/themes/illdy/layout/css/bootstrap-theme.min.css?ver=3.3.6'
+        type='text/css' media='all' />
+
+    <style>
+        .card-footer,
+        .card-header {
+            padding: .7692rem 1.538rem;
+        }
+
+        .card {
+            position: relative;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            min-width: 0;
+            word-wrap: break-word;
+            background-clip: border-box;
+            border: 1px solid rgba(0, 0, 0, .125);
+        }
+
+        .card>hr {
+            margin-right: 0;
+        }
+
+        .card-body {
+            -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+        }
+
+        .card-title {
+            margin-bottom: .7692rem;
+        }
+
+        .card-header,
+        .card-text:last-child {
+            margin-bottom: 0;
+        }
+
+        .card-link:hover {
+            text-decoration: none;
+        }
+
+        .card-link+.card-link {
+            margin-left: 1.538rem;
+        }
+
+        .card-header {
+            border-bottom: 1px solid rgba(0, 0, 0, .125);
+        }
+
+        .card-header:first-child {
+            border-radius: calc(3px - 1px) calc(3px - 1px) 0 0;
+        }
+
+        .card-footer {
+            background-color: #FFF;
+            border-top: 1px solid rgba(0, 0, 0, .125);
+        }
+
+        .card-footer:last-child {
+            border-radius: 0 0 calc(3px - 1px) calc(3px - 1px);
+        }
+
+        .card-deck {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-direction: column;
+            flex-direction: column;
+        }
+
+        .card-deck .card {
+            margin-bottom: 15px;
+        }
+
+        @media (min-width:576px) {
+            .card-deck {
+                -ms-flex-flow: row wrap;
+                flex-flow: row wrap;
+                margin-right: -15px;
+                margin-left: -15px;
+            }
+            .card-deck .card {
+                display: -ms-flexbox;
+                display: flex;
+                -ms-flex: 1 0 0%;
+                flex: 1 0 0%;
+                -ms-flex-direction: column;
+                flex-direction: column;
+                margin-right: 15px;
+                margin-bottom: 0;
+                margin-left: 15px;
+            }
+        }
+
+        .card {
+            background-color: #FFF;
+            margin-bottom: 25px;
+            box-shadow: 0 0 4px 0 rgba(0, 0, 0, .04);
+            border-width: 0;
+            border-radius: 3px;
+            display: block;
+        }
+
+        .card-body {
+            padding: 8px 20px 20px;
+            border-radius: 0 0 3px 3px;
+        }
+
+        .card-header {
+            font-size: 18px;
+            font-weight: 300;
+            padding-left: 0;
+            padding-right: 0;
+            padding-top: 1.5384rem;
+            margin: 0 1.538rem;
+            border-bottom-width: 0;
+            border-radius: 3px 3px 0 0;
+            background-color: transparent;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 300;
+            display: block;
+            margin: 0;
+        }
+
+        .card-subtitle {
+            display: block;
+            font-size: 1rem;
+            color: #707070;
+            margin-top: 0;
+            margin-bottom: .4615rem;
+        }
+
+        .card-flat {
+            border: none;
+            box-shadow: none;
+        }
+
+        .card-border {
+            box-shadow: none;
+            border: 1px solid #d4d4d4;
+        }
+
+        .card-contrast .card-header {
+            margin: 0;
+            padding: 20px 20px 11px;
+        }
+
+        .card-contrast .card-body {
+            padding-top: 16px;
+        }
+
+        .card-body-contrast,
+        .card-header-contrast {
+            background-color: #f5f5f5;
+        }
+
+        .card-border-color {
+            border-top: 3px solid #c9c9c9;
+        }
+
+        .card-border-color-primary {
+            border-top-color: #4285f4;
+        }
+
+        .card-border-color-danger {
+            border-top-color: #ea4335;
+        }
+
+        .card-border-color-warning {
+            border-top-color: #fbbc05;
+        }
+
+        .card-border-color-success {
+            border-top-color: #34a853;
+        }
+
+        .card-border-color-dark {
+            border-top-color: #3d3c3c;
+        }
+
+        .btn.active,
+        .btn:active {
+            box-shadow: none;
+        }
+
+        .btn.active,
+        .btn:active {
+            box-shadow: none;
+        }
+
+        .btn.active.focus,
+        .btn:active:focus {
+            outline: 0;
+        }
+
+        .btn-secondary {
+            color: #404040;
+            background-color: #FFF;
+            border-color: #dbdbdb;
+            font-weight: 600;
+        }
+
+        .btn-secondary.focus,
+        .btn-secondary:focus {
+            color: #404040;
+            background-color: #FFF;
+            border-color: #dbdbdb;
+            box-shadow: 0 1px 0 rgba(0, 0, 0, .05);
+        }
+
+        .btn-secondary.hover,
+        .btn-secondary:hover {
+            color: #404040;
+            box-shadow: 0 1px 0 rgba(0, 0, 0, .1);
+            background-color: #FFF;
+            border-color: #bababa;
+        }
+
+        .btn-secondary:not(:disabled):not(.disabled).active,
+        .btn-secondary:not(:disabled):not(.disabled):active,
+        .show>.btn-secondary.dropdown-toggle {
+            color: #FFF;
+            background-color: #6e6d6d;
+            border-color: #676767;
+        }
+
+        .btn-secondary:not(:disabled):not(.disabled).active:focus,
+        .btn-secondary:not(:disabled):not(.disabled):active:focus,
+        .show>.btn-secondary.dropdown-toggle:focus {
+            box-shadow: 0 0 0 0 rgba(135, 135, 135, .5);
+        }
+
+        .btn-secondary.active,
+        .btn-secondary.active.focus,
+        .btn-secondary.active:focus,
+        .btn-secondary.active:hover,
+        .btn-secondary:active,
+        .btn-secondary:active.focus,
+        .btn-secondary:active:focus,
+        .btn-secondary:active:hover,
+        .btn-secondary:not([disabled]):not(.disabled).active,
+        .btn-secondary:not([disabled]):not(.disabled).active.focus,
+        .btn-secondary:not([disabled]):not(.disabled).active:focus,
+        .btn-secondary:not([disabled]):not(.disabled).active:hover,
+        .btn-secondary:not([disabled]):not(.disabled):active,
+        .btn-secondary:not([disabled]):not(.disabled):active.focus,
+        .btn-secondary:not([disabled]):not(.disabled):active:focus,
+        .btn-secondary:not([disabled]):not(.disabled):active:hover,
+        .show>.btn-secondary.dropdown-toggle,
+        .show>.btn-secondary.dropdown-toggle.focus,
+        .show>.btn-secondary.dropdown-toggle:focus,
+        .show>.btn-secondary.dropdown-toggle:hover {
+            color: #272626;
+            background-color: #e3e3e3;
+            border-color: #bababa;
+            box-shadow: inset 0 2px 0 rgba(0, 0, 0, .06);
+        }
+
+        .btn-secondary.active,
+        .btn-secondary:active,
+        .show>.btn-secondary.dropdown-toggle {
+            background-image: none;
+        }
+
+        .btn-secondary.disabled,
+        .btn-secondary.disabled.active,
+        .btn-secondary.disabled.focus,
+        .btn-secondary.disabled:active,
+        .btn-secondary.disabled:focus,
+        .btn-secondary.disabled:hover,
+        .btn-secondary[disabled],
+        .btn-secondary[disabled].active,
+        .btn-secondary[disabled].focus,
+        .btn-secondary[disabled]:active,
+        .btn-secondary[disabled]:focus,
+        .btn-secondary[disabled]:hover,
+        fieldset[disabled] .btn-secondary,
+        fieldset[disabled] .btn-secondary.active,
+        fieldset[disabled] .btn-secondary.focus,
+        fieldset[disabled] .btn-secondary:active,
+        fieldset[disabled] .btn-secondary:focus,
+        fieldset[disabled] .btn-secondary:hover {
+            background-color: #FFF;
+            border-color: #dbdbdb;
+        }
+
+        .btn-group>.btn.btn-secondary.active+.btn,
+        .btn-group>.btn.btn-secondary:hover+.btn,
+        .input-group-append>.btn.btn-secondary.active+.btn,
+        .input-group-append>.btn.btn-secondary:hover+.btn,
+        .input-group-btn>.btn.btn-secondary.active+.btn,
+        .input-group-btn>.btn.btn-secondary:hover+.btn,
+        .input-group-prepend>.btn.btn-secondary.active+.btn,
+        .input-group-prepend>.btn.btn-secondary:hover+.btn {
+            border-left-color: #bababa;
+        }
+
+        .btn-secondary.disabled,
+        .btn-secondary:disabled {
+            color: #FFF;
+            background-color: #878787;
+            border-color: #878787;
+        }
+
+
+
+        .card {
+            margin-bottom: 20px;
+        }
+
+        .card-header {
+            font-weight: 700;
+            padding-top: 0;
+            margin-top: 15px
+        }
+
+        .card-body {
+            padding-bottom: 0;
+            margin-bottom: 15px          
+        }
+
+        .input-group-addon {
+            background-color: #ea4335;
+            color: #FFF;
+            font-weight: 600;
+            width: 80px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+
+        .ante .form-group>label {
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .ante .form-group {
+            border: 1px solid #d4d4d4;
+        }
+
+        .list-group-item-heading {
+            font-weight: 700;
+        }
+
+        .list-group-item-heading small {
+            font-weight: 400;
+            /* font-size: 90%; */
+        }
+
+        .input-group-addon small {
+            /* font-size: 90%; */
+            font-weight: 400;
+        }
+
+        .form-group .title {
+            display: inline-block;
+            text-align: center;
+            font-size: 16px;
+            max-width: 200px;
+        }
+
+        .form-group .title:first-child {
+            width: 80px
+        }
+
+        div .img-rounded {
+            width: 513px;
+            height: 513px;
+            border: 1px solid #d4d4d4;
+            text-align: center;
+        }
+
+        .call .list-group-item.active,
+        .call .list-group-item.active:focus,
+        .call .list-group-item.active:hover {
+            background-color: #34a853;
+            background-image: -webkit-linear-gradient(top, #34a853 0, #34a853 100%);
+            background-image: -o-linear-gradient(top, #34a853 0, #34a853 100%);
+            background-image: -webkit-gradient(linear, left top, left bottom, from(#34a853), to(#34a853));
+            background-image: linear-gradient(to bottom, #34a853 0, #34a853 100%);
+            text-shadow: none;
+            background-image: linear-gradient(to bottom, #34a853 0, #34a853 100%);
+            border-color: #34a853;
+        }
+
+        .push .list-group-item.active,
+        .push .list-group-item.active:focus,
+        .push .list-group-item.active:hover {
+            background-color: #ea4335;
+            background-image: -webkit-linear-gradient(top, #ea4335 0, #ea4335 100%);
+            background-image: -o-linear-gradient(top, #ea4335 0, #ea4335 100%);
+            background-image: -webkit-gradient(linear, left top, left bottom, from(#ea4335), to(#ea4335));
+            background-image: linear-gradient(to bottom, #ea4335 0, #ea4335 100%);
+            text-shadow: none;
+            background-image: linear-gradient(to bottom, #ea4335 0, #ea4335 100%);
+            border-color: #ea4335;
+        }
+    </style>
+
+    <script type='text/javascript' src='http://projetopokerpro.com.br/wp-content/themes/pokerpro/assets/js/jquery.js?ver=20150825'></script>
+    <script type='text/javascript' src='http://projetopokerpro.com.br/wp-content/themes/pokerpro/assets/js/bootstrap.min.js?ver=3.3.5'></script>
+
+    <script type="text/javascript">
+        var ante = [10, 12.5, 20];
+        var blinds = [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+        var pos = ['utg', 'utg+1', 'mp', 'mp+1', 'hj', 'co', 'btn', 'sb'];
+
+        $(document).ready(function () {
+            var htmlAnte = '';
+            for (var item of ante) {
+                htmlAnte += '<label class="btn btn-secondary"><input type="radio" name="ante" value="' + item + '">' + item + ' </label>';
+            }
+
+            $('.ante .btn-group').append(htmlAnte);
+
+            for (var item of blinds) {
+                var htmlPTA = '';
+
+                htmlPTA = '';
+                htmlPTA += '<a href="#" class="list-group-item bb-' + item + '""><h4 class="list-group-item-heading">' + item + ' <small>BB</small></h4><p class="list-group-item-text btn-group" role="group" data-toggle="buttons">';
+                for (var i = 0; i < pos.length; i++) {
+                    var value = item + '-' + (i + 1);
+                    htmlPTA += '<label class="btn btn-secondary"><input type="radio" name="pta" value="' + value + '">' + pos[i] + '</label>';
+                }
+                htmlPTA += '</p></a>'
+
+                $('.pta').append(htmlPTA);
+
+                $('.call .pta .bb-' + item + ' input').change(function () {
+                    $('.call .list-group-item').removeClass('active');
+                    var parent = $(this).parents('.list-group-item');
+                    parent.addClass('active');
+                    $('.call .pta .btn.active').not($(this).parent()).removeClass('active');
+                    selectImage();
+                });
+                $('.push .pta .bb-' + item + ' input').change(function () {
+                    $('.push .list-group-item').removeClass('active');
+                    var parent = $(this).parents('.list-group-item');
+                    parent.addClass('active');
+                    $('.push .pta .btn.active').not($(this).parent()).removeClass('active');
+                    selectImage();
+                });
+            }
+
+            $('.ante input').change(function () {
+                selectImage();
+            });
+            for (var i = 0; i < pos.length; i++) {
+                htmlPTA += '<label class="btn btn-secondary"><input type="radio" name="pta" value="' + (i + 1) + '">' + pos[i] + '</label>';
+            }
+        });
+
+        var imgs = ['img-1.jpg', 'img-2.jpg', 'img-3.jpg'];
+
+        function selectImage() {
+            var ante = $('.ante .btn.active input').val();
+            var ptaPush = $('.push .pta .btn.active input').val();
+            var ptaCall = $('.call .pta .btn.active input').val();
+
+            var imgAtual = imgs[0];
+
+            if (ante && ptaPush) {
+                imgs[0] = imgs[1];
+                imgs[1] = imgs[2];
+                imgs[2] = imgAtual;
+
+                $('.push .img-rounded').attr('src', imgAtual).removeClass('hidden');
+            }
+
+            if (ante && ptaPush && ptaCall) {
+                var imgAtual = imgs[0];
+
+                imgs[0] = imgs[1];
+                imgs[1] = imgs[2];
+                imgs[2] = imgAtual;
+
+                $('.call .img-rounded').attr('src', imgAtual).removeClass('hidden');
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <main id="project">
+        <div class="container">
+            <div class="page-header">
+                <h2>Projeto Poker Pro
+                    <small>Range</small>
+                </h2>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4 ante">
+                    <div class="form-gro2up text-center">
+                        <div class="card card-border">
+                            <div class="card-header">Ante (%)</div>
+                            <div class="card-body">
+                                <div class="button-toolbar">
+                                    <div class="btn-group" role="group" data-toggle="buttons">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 push">
+                    <div class="card card-border card-contrast card-border-color card-border-color-danger">
+                        <div class="card-header card-header-contrast">Push</div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <div class="pta" class="list-group">
+                                </div>
+                            </div>
+                            <div>
+                                <img class="img-rounded center-block hidden">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 call">
+                    <div class="card card-border card-contrast card-border-color card-border-color-success">
+                        <div class="card-header card-header-contrast">Call</div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <div class="pta" class="list-group">
+                                </div>
+                            </div>
+                            <div>
+                                <img class="img-rounded center-block hidden">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </main>
+</body>
+
+</html>
