@@ -419,33 +419,33 @@
 
         $(document).ready(function () {
             var htmlAnte = '';
-            for (var item of ante) {
-                htmlAnte += '<label class="btn btn-secondary"><input type="radio" name="ante" value="' + item + '">' + item + ' </label>';
+            for (var i = 0; i < ante.length; i++) {
+                htmlAnte += '<label class="btn btn-secondary"><input type="radio" name="ante" value="' + i + '">' + ante[i] + ' </label>';
             }
 
             $('.ante .btn-group').append(htmlAnte);
 
-            for (var item of blinds) {
+            for (var i = 0; i < blinds.length; i++) {
                 var htmlPTA = '';
 
                 htmlPTA = '';
-                htmlPTA += '<a href="#" class="list-group-item bb-' + item + '""><h4 class="list-group-item-heading">' + item + ' <small>BB</small></h4><p class="list-group-item-text btn-group" role="group" data-toggle="buttons">';
-                for (var i = 0; i < pos.length; i++) {
-                    var value = item + '-' + (i + 1);
-                    htmlPTA += '<label class="btn btn-secondary"><input type="radio" name="pta" value="' + value + '">' + pos[i] + '</label>';
+                htmlPTA += '<a href="#" class="list-group-item bb-' + blinds[i] + '""><h4 class="list-group-item-heading">' + blinds[i] + ' <small>BB</small></h4><p class="list-group-item-text btn-group" role="group" data-toggle="buttons">';
+                for (var j = 0; j < pos.length; j++) {
+                    var value = blinds[i] + '-' + (j + 1);
+                    htmlPTA += '<label class="btn btn-secondary"><input type="radio" name="pta" value="' + value + '">' + pos[j] + '</label>';
                 }
                 htmlPTA += '</p></a>'
 
                 $('.pta').append(htmlPTA);
 
-                $('.call .pta .bb-' + item + ' input').change(function () {
+                $('.call .pta .bb-' + blinds[i] + ' input').change(function () {
                     $('.call .list-group-item').removeClass('active');
                     var parent = $(this).parents('.list-group-item');
                     parent.addClass('active');
                     $('.call .pta .btn.active').not($(this).parent()).removeClass('active');
                     selectImage();
                 });
-                $('.push .pta .bb-' + item + ' input').change(function () {
+                $('.push .pta .bb-' + blinds[i] + ' input').change(function () {
                     $('.push .list-group-item').removeClass('active');
                     var parent = $(this).parents('.list-group-item');
                     parent.addClass('active');

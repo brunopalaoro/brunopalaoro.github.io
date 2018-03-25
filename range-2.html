@@ -427,13 +427,14 @@
 
         $(document).ready(function () {
             var htmlAnte = '';
-            for (var item of ante) {
-                htmlAnte += '<label class="btn btn-secondary"><input type="radio" name="ante" value="' + item + '">' + item + ' </label>';
+            for (var i = 0; i < ante.length; i++) {
+                htmlAnte += '<label class="btn btn-secondary"><input type="radio" name="ante" value="' + i + '">' + ante[i] + ' </label>';
             }
 
             $('.ante .btn-group').append(htmlAnte);
 
-            for (var item of blinds) {
+            for (var b = 0; b < blinds.length; b++) {
+                var item = blinds[b];
                 var htmlPTA = '';
 
                 htmlPTA += '<div class="btn-group input-group bb-' + item + '" role="group" data-toggle="buttons"><span class="input-group-addon" value="' + item + '">' + item + ' <small>BB</small></span>';

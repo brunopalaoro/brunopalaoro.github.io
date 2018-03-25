@@ -436,16 +436,16 @@
 
         $(document).ready(function () {
             var htmlAnte = '';
-            for (var item of ante) {
-                htmlAnte += '<label class="btn btn-secondary"><input type="radio" name="ante" value="' + item + '">' + item + ' </label>';
+            for (var i = 0; i < ante.length; i++) {
+                htmlAnte += '<label class="btn btn-secondary"><input type="radio" name="ante" value="' + i + '">' + ante[i] + ' </label>';
             }
 
             $('.ante .btn-group').append(htmlAnte);
 
             var htmlStacks = '';
 
-            for (var item of blinds) {
-                htmlStacks += '<label class="btn btn-secondary"><input type="radio" name="stack" value="' + value + '">' + item + '</label>';;
+            for (var i = 0; i < blinds.length; i++) {
+                htmlStacks += '<label class="btn btn-secondary"><input type="radio" name="stack" value="' + i + '">' + blinds[i] + '</label>';
             }
 
             $('.stacks').append(htmlStacks);
