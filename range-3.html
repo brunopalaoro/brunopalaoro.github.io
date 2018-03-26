@@ -327,41 +327,10 @@
         }
 
         .card-body {
+            padding-top: 15px;
             padding-bottom: 0;
-            margin-bottom: 15px
-        }
-
-        .input-group-addon {
-            background-color: #ea4335;
-            color: #FFF;
-            font-weight: 600;
-            width: 80px;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-        }
-
-        .ante .form-group>label {
-            font-weight: 700;
-            font-size: 18px;
-        }
-
-        .ante .form-group {
-            border: 1px solid #d4d4d4;
-        }
-
-        .list-group-item-heading {
-            font-weight: 700;
-        }
-
-        .list-group-item-heading small {
-            font-weight: 400;
-            /* font-size: 90%; */
-        }
-
-        .input-group-addon small {
-            /* font-size: 90%; */
-            font-weight: 400;
+            /* margin-bottom: 20px; */
+            /* margin-top: 20px; */
         }
 
         .form-group .title {
@@ -375,26 +344,6 @@
             width: 80px
         }
 
-        div .img-rounded {
-            width: 513px;
-            height: 513px;
-            border: 1px solid #d4d4d4;
-            text-align: center;
-        }
-
-        .call .list-group-item.active,
-        .call .list-group-item.active:focus,
-        .call .list-group-item.active:hover {
-            background-color: #34a853;
-            background-image: -webkit-linear-gradient(top, #34a853 0, #34a853 100%);
-            background-image: -o-linear-gradient(top, #34a853 0, #34a853 100%);
-            background-image: -webkit-gradient(linear, left top, left bottom, from(#34a853), to(#34a853));
-            background-image: linear-gradient(to bottom, #34a853 0, #34a853 100%);
-            text-shadow: none;
-            background-image: linear-gradient(to bottom, #34a853 0, #34a853 100%);
-            border-color: #34a853;
-        }
-
         .push .btn-secondary:not([disabled]):not(.disabled).active,
         .push .btn-secondary:not([disabled]):not(.disabled).active.focus,
         .push .btn-secondary:not([disabled]):not(.disabled).active:focus,
@@ -403,11 +352,11 @@
         .push .btn-secondary:not([disabled]):not(.disabled):active.focus,
         .push .btn-secondary:not([disabled]):not(.disabled):active:focus,
         .push .btn-secondary:not([disabled]):not(.disabled):active:hover {
-            background-color: #ea4335 ;
-            color: #FFF ;
+            background-color: #ea4335;
+            color: #FFF;
             border-color: #ea4335;
         }
-        
+
         .call .btn-secondary:not([disabled]):not(.disabled).active,
         .call .btn-secondary:not([disabled]):not(.disabled).active.focus,
         .call .btn-secondary:not([disabled]):not(.disabled).active:focus,
@@ -416,13 +365,30 @@
         .call .btn-secondary:not([disabled]):not(.disabled):active.focus,
         .call .btn-secondary:not([disabled]):not(.disabled):active:focus,
         .call .btn-secondary:not([disabled]):not(.disabled):active:hover {
-            background-color: #34a853 ;
-            color: #FFF ;
+            background-color: #34a853;
+            color: #FFF;
             border-color: #34a853;
         }
 
         .form-group>label {
-            display: block
+            display: block;
+            font-size: 16px
+        }
+
+        .col-md-6 {
+            /* width: 570px; */
+        }
+
+        @media (max-width: 1200px) {
+            .container.cards {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 1160px) {
+            .col-md-6 {
+                /* width: inherit; */
+            }
         }
     </style>
 
@@ -440,7 +406,7 @@
                 htmlAnte += '<label class="btn btn-secondary"><input type="radio" name="ante" value="' + i + '">' + ante[i] + ' </label>';
             }
 
-            $('.ante .btn-group').append(htmlAnte);
+            $('.ante.btn-group').append(htmlAnte);
 
             var htmlStacks = '';
 
@@ -479,21 +445,20 @@
 
         function selectImage() {
             var ante = $('.ante .btn.active input').val();
-            var stackPush = $('.push .stacks .btn.active input').val();
-            var stackCall = $('.call .stacks .btn.active input').val();
+            var stack = $('.stacks .btn.active input').val();
             var ptaPush = $('.push .pta .btn.active input').val();
             var ptaCall = $('.call .pta .btn.active input').val();
 
             var imgAtual = imgs[0];
 
-            if (ante && stackPush && ptaPush) {
+            if (ante && stack && ptaPush) {
                 imgs[0] = imgs[1];
                 imgs[1] = imgs[2];
                 imgs[2] = imgAtual;
 
                 $('.push .img-rounded').attr('src', imgAtual).removeClass('hidden');
 
-                if (stackCall && ptaCall) {
+                if (ptaCall) {
                     var imgAtual = imgs[0];
 
                     imgs[0] = imgs[1];
@@ -509,7 +474,7 @@
 
 <body>
     <main id="project">
-        <div class="container-fluid">
+        <div class="container">
             <div class="page-header">
                 <h2>Projeto Poker Pro
                     <small>Range</small>
@@ -517,13 +482,21 @@
             </div>
 
             <div class="row">
-                <div class="col-md-4 col-md-offset-4 ante">
-                    <div class="form-gro2up text-center">
+                <div class="col-md-10 col-md-offset-1 col-sm-12 col-lg-8 col-lg-offset-2">
+                    <div class="form-group text-center">
                         <div class="card card-border">
-                            <div class="card-header">Ante (%)</div>
+
                             <div class="card-body">
-                                <div class="button-toolbar">
-                                    <div class="btn-group" role="group" data-toggle="buttons">
+                                <div class="form-group">
+                                    <label>Ante (%)</label>
+                                    <div class="button-toolbar">
+                                        <div class="ante btn-group" role="group" data-toggle="buttons">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Stacks</label>
+                                    <div class="stacks btn-group" role="group" data-toggle="buttons">
                                     </div>
                                 </div>
                             </div>
@@ -531,24 +504,21 @@
                     </div>
                 </div>
             </div>
-
+        </div>
+        
+        <div class="container cards">
             <div class="row">
-                <div class="col-md-6 push">
+                <div class="col-md-6  push">
                     <div class="card card-border card-contrast card-border-color card-border-color-danger">
                         <div class="card-header card-header-contrast">Push</div>
                         <div class="card-body">
-                            <div class="form-group">
-                                <label>Stacks</label>
-                                <div class="stacks btn-group" role="group" data-toggle="buttons">
-                                </div>
-                            </div>
                             <div class="form-group">
                                 <label>Players to Act</label>
                                 <div class="pta btn-group" role="group" data-toggle="buttons">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <img class="img-rounded center-block hidden">
+                                <img class="img-rounded center-block img-responsive hidden">
                             </div>
                         </div>
                     </div>
@@ -559,17 +529,12 @@
                         <div class="card-header card-header-contrast">Call</div>
                         <div class="card-body">
                             <div class="form-group">
-                                <label>Stacks</label>
-                                <div class="stacks btn-group" role="group" data-toggle="buttons">
-                                </div>
-                            </div>
-                            <div class="form-group">
                                 <label>Players to Act</label>
                                 <div class="pta btn-group" role="group" data-toggle="buttons">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <img class="img-rounded center-block hidden">
+                                <img class="img-rounded center-block img-responsive hidden">
                             </div>
                         </div>
                     </div>
