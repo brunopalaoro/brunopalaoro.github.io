@@ -11,7 +11,6 @@
     <link rel='stylesheet' id='bootstrap-theme-css' href='http://projetopokerpro.com.br/wp-content/themes/illdy/layout/css/bootstrap-theme.min.css?ver=3.3.6'
         type='text/css' media='all' />
 
-
     <style>
         .card-footer,
         .card-header {
@@ -315,32 +314,21 @@
             border-color: #878787;
         }
 
+
+
+        .card {
+            margin-bottom: 20px;
+        }
+
         .card-header {
             font-weight: 700;
+            padding-top: 0;
+            margin-top: 15px
         }
 
-        .input-group-addon {
-            background-color: #ea4335;
-            color: #FFF;
-            font-weight: 600;
-            width: 80px;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-        }
-
-        .list-group-item-heading {
-            font-weight: 700;
-        }
-
-        .list-group-item-heading small {
-            font-weight: 400;
-            /* font-size: 90%; */
-        }
-
-        .input-group-addon small {
-            /* font-size: 90%; */
-            font-weight: 400;
+        .card-body {
+            padding-top: 15px;
+            padding-bottom: 0;
         }
 
         .form-group .title {
@@ -354,23 +342,65 @@
             width: 80px
         }
 
-        div.img-rounded {
-            width: 513px;
-            height: 385px;
-            border: 1px solid #d4d4d4;
-            text-align: center;
+        .push .btn-secondary:not([disabled]):not(.disabled).active,
+        .push .btn-secondary:not([disabled]):not(.disabled).active.focus,
+        .push .btn-secondary:not([disabled]):not(.disabled).active:focus,
+        .push .btn-secondary:not([disabled]):not(.disabled).active:hover,
+        .push .btn-secondary:not([disabled]):not(.disabled):active,
+        .push .btn-secondary:not([disabled]):not(.disabled):active.focus,
+        .push .btn-secondary:not([disabled]):not(.disabled):active:focus,
+        .push .btn-secondary:not([disabled]):not(.disabled):active:hover {
+            background-color: #ea4335;
+            color: #FFF;
+            border-color: #ea4335;
         }
 
-        .list-group-item.active,
-        .list-group-item.active:focus,
-        .list-group-item.active:hover {
-            background-image: -webkit-linear-gradient(top, #ea4335 0, #ea4335 100%);
-            background-image: -o-linear-gradient(top, #ea4335 0, #ea4335 100%);
-            background-image: -webkit-gradient(linear, left top, left bottom, from(#337ab7), to(#ea4335));
-            background-image: linear-gradient(to bottom, #ea4335 0, #ea4335 100%);
-            text-shadow: none;
-            background-image: linear-gradient(to bottom, #ea4335 0, #ea4335 100%);
-            border-color: #ea4335;
+        .call .btn-secondary:not([disabled]):not(.disabled).active,
+        .call .btn-secondary:not([disabled]):not(.disabled).active.focus,
+        .call .btn-secondary:not([disabled]):not(.disabled).active:focus,
+        .call .btn-secondary:not([disabled]):not(.disabled).active:hover,
+        .call .btn-secondary:not([disabled]):not(.disabled):active,
+        .call .btn-secondary:not([disabled]):not(.disabled):active.focus,
+        .call .btn-secondary:not([disabled]):not(.disabled):active:focus,
+        .call .btn-secondary:not([disabled]):not(.disabled):active:hover {
+            background-color: #34a853;
+            color: #FFF;
+            border-color: #34a853;
+        }
+
+        .form-group>label {
+            display: block;
+            font-size: 16px
+        }
+
+        @media (max-width: 1200px) {
+            .container.cards {
+                width: 100%;
+            }
+        }
+
+        .btn-secondary.disabled,
+        .btn-secondary:disabled 
+        .btn-secondary.disabled.active,
+        .btn-secondary.disabled.focus,
+        .btn-secondary.disabled:active,
+        .btn-secondary.disabled:focus,
+        .btn-secondary.disabled:hover,
+        .btn-secondary[disabled],
+        .btn-secondary[disabled].active,
+        .btn-secondary[disabled].focus,
+        .btn-secondary[disabled]:active,
+        .btn-secondary[disabled]:focus,
+        .btn-secondary[disabled]:hover,
+        fieldset[disabled] .btn-secondary,
+        fieldset[disabled] .btn-secondary.active,
+        fieldset[disabled] .btn-secondary.focus,
+        fieldset[disabled] .btn-secondary:active,
+        fieldset[disabled] .btn-secondary:focus,
+        fieldset[disabled] .btn-secondary:hover {
+            color: #999;
+            background-color: #f7f7f7;
+            border-color: #bababa;
         }
     </style>
 
@@ -379,73 +409,125 @@
 
     <script type="text/javascript">
         var ante = [10, 12.5, 20];
-        var blinds = [12, 10, 8, 6];
-        var pos = ['utg', 'utg+1', 'mp', 'mp+1', 'hj', 'co', 'btn', 'sb'];
+        var blinds = [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+        var pos = ['utg', 'utg+1', 'mp', 'mp+1', 'hj', 'co', 'btn', 'sb', 'bb'];
+        var imgPos = ['UTG', 'UTG1', 'MP1', 'MP2', 'MP3', 'CO', 'BU', 'SB', 'BB'];
 
         $(document).ready(function () {
             var htmlAnte = '';
-            for (var item of ante) {
-                htmlAnte += '<label class="btn btn-secondary"><input type="radio" name="ante" value="' + item + '">' + item + ' </label>';
+            for (var i = 0; i < ante.length; i++) {
+                htmlAnte += '<label class="btn btn-secondary"><input type="radio" name="ante" value="' + ante[i] + '">' + ante[i] + ' </label>';
             }
 
-            $('.ante').append(htmlAnte);
+            $('.ante.btn-group').append(htmlAnte);
 
-            for (var item of blinds) {
-                var htmlPTA = '';
+            var htmlStacks = '';
 
-                htmlPTA += '<div class="btn-group input-group bb-'+item+'" role="group" data-toggle="buttons"><span class="input-group-addon" value="' + item + '">' + item + ' <small>BB</small></span>';
-                for (var i = 0; i < pos.length; i++) {
-                    var value = item + '-' + (i + 1);
-                    htmlPTA += '<label class="btn btn-secondary"><input type="radio" name="pta" value="' + value + '">' + pos[i] + '</label>';
-                }
-                htmlPTA += '</div><br>'
-
-                $('.push .pta').append(htmlPTA);
-                $('.push  .pta .bb-' + item + ' input').change(function () {
-                    $('.push .pta .btn.active').not($(this).parent()).removeClass('active');
-                    selectImage();
-                });
-
-                htmlPTA = '';
-                htmlPTA += '<a href="#" class="list-group-item bb-'+item+'""><h4 class="list-group-item-heading">' + item + ' <small>BB</small></h4><p class="list-group-item-text btn-group" role="group" data-toggle="buttons">';
-                for (var i = 0; i < pos.length; i++) {
-                    var value = item + '-' + (i + 1);
-                    htmlPTA += '<label class="btn btn-secondary"><input type="radio" name="pta" value="' + value + '">' + pos[i] + '</label>';
-                }
-                htmlPTA += '</p></a>'
-
-                $('.call .pta').append(htmlPTA);
-
-                $('.call .pta .bb-' + item + ' input').change(function () {
-                    $('.call .list-group-item').removeClass('active');
-                    var parent = $(this).parents('.list-group-item');
-                    parent.addClass('active');
-                    $('.call .pta .btn.active').not($(this).parent()).removeClass('active');
-                    selectImage();
-                });
+            for (var i = 0; i < blinds.length; i++) {
+                htmlStacks += '<label class="btn btn-secondary"><input type="radio" name="stack" autocomplete="off" value="' + blinds[i] + '">' + blinds[i] + '</label>';
             }
+
+            $('.stacks').append(htmlStacks);
+
+            var htmlPosition = '';
+            for (var i = 0; i < pos.length - 1; i++) {
+                htmlPosition += '<label class="btn btn-secondary"><input type="radio" name="position" autocomplete="off" value="' + imgPos[i] + '">' + pos[i] + '</label>';
+            }
+
+            $('.push .position').append(htmlPosition);
+
+            htmlPosition = '';
+            for (var i = 1; i < pos.length; i++) {
+                htmlPosition += '<label class="btn btn-secondary"><input type="radio" name="position" autocomplete="off" value="' + imgPos[i] + '">' + pos[i] + '</label>';
+            }
+            $('.call .position').append(htmlPosition);
+            $('.call .position .btn').addClass('disabled').children().prop('disabled', true);
 
             $('.ante input').change(function () {
-                selectImage();
+                selectImagePush();
             });
-            for (var i = 0; i < pos.length; i++) {
-                htmlPTA += '<label class="btn btn-secondary"><input type="radio" name="pta" value="' + (i + 1) + '">' + pos[i] + '</label>';
-            }
+            $('.stacks input').change(function () {
+                selectImagePush();
+            });
+
+            $('.push .position input').change(function (obj) {
+                selectImagePush();
+            });
+            $('.call .position input').change(function (event) {
+                if ($(this).prop('disabled')) {
+                    $(this).parent().removeClass('active');
+                    event.preventDefault();
+
+                    return;
+                }
+                selectImageCall();
+            });
         });
 
-        function selectImage() {
-            var ante = $('.ante .btn.active input').val();
-            var ptaPush = $('.push .pta .btn.active input').val();
-            var ptaCall = $('.call .pta .btn.active input').val();
+        function selectImagePush() {
+            var push = pushValue();
+            if (!push)
+                return;
 
-            if (ante && ptaPush) {
-                $('.push .img-rounded').html(ante + '-' + ptaPush);
+            var pos = $('.push .position .btn.active').index('.push .position .btn');
+            
+            $('.call .position .btn').each(function(idx, elem) {
+                if (idx < pos) {
+                    $(elem).addClass('disabled').children().prop('disabled', true);
+                    $(elem).removeClass('active');
+                } else {
+                    $(elem).removeClass('disabled').children().removeProp('disabled');
+                }
+            });
+            $('.call .img-rounded').attr('src', '').addClass('hidden');
+
+            var ante = anteValue();
+            var stack = stackValue();
+
+
+            if (ante && stack && push) {
+                var dir = getBaseDir(ante, stack) + 'openshove_vilao30bb_PADRAO/';
+                var file = ante + '_ante_' + push + '_' + stack + 'bb_v30bb.JPG';
+
+                $('.push .img-rounded').attr('src', dir + file).removeClass('hidden');
             }
 
-            if (ante && ptaCall) {
-                $('.call .img-rounded').html(ante + '-' + ptaCall);
+            selectImageCall();
+        }
+
+        function getBaseDir(ante, stack) {
+            return ante + '_ante/' + stack + 'bb/';
+        }
+
+        function anteValue() {
+            return $('.ante .btn.active input').val();
+        }
+
+        function stackValue() {
+            return $('.stacks .btn.active input').val();
+        }
+
+        function pushValue() {
+            return $('.push .position .btn.active input').val();
+        }
+
+        function selectImageCall() {
+            var ante = anteValue();
+            var stack = stackValue();
+            var push = pushValue();
+            var call = $('.call .position .btn.active input').val();
+            
+            if (push === 'SB') {
+                call = 'BB';
+                $('.call .position .btn:last-child').addClass('active');
             }
 
+            if (ante && stack && push && call) {
+                var dir = getBaseDir(ante, stack) + 'caller30bb/vs' + push + '/';
+                var file = 'vs' + push + '_' + call + 'call.JPG';
+                console.log(dir, file);
+                $('.call .img-rounded').attr('src', dir + file).removeClass('hidden');
+            }
         }
     </script>
 </head>
@@ -460,55 +542,65 @@
             </div>
 
             <div class="row">
-                <div class="col-md-4 col-md-offset-4">
-                    <div class="card card-border card-contrast card-border-color card-border-color-danger">
-                        <div class="card-header card-header-contrast">Ante (%)</div>
-                        <div class="card-body text-center">
-                            <div class="button-toolbar">
-                                <div class="btn-group ante" role="group" data-toggle="buttons">
+                <div class="col-md-10 col-md-offset-1 col-sm-12 col-lg-8 col-lg-offset-2">
+                    <div class="form-group text-center">
+                        <div class="card card-border">
+
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label>Ante (%)</label>
+                                    <div class="button-toolbar">
+                                        <div class="ante btn-group" role="group" data-toggle="buttons">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Stacks</label>
+                                    <div class="stacks btn-group" role="group" data-toggle="buttons">
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
+        </div>
+        
+        <div class="container cards">
             <div class="row">
-                <div class="col-md-6 push">
+                <div class="col-md-6  push">
                     <div class="card card-border card-contrast card-border-color card-border-color-danger">
                         <div class="card-header card-header-contrast">Push</div>
                         <div class="card-body">
                             <div class="form-group">
-                                <div>
-                                    <div class="pta">
-                                    </div>
+                                <label>Position to Push</label>
+                                <div class="position btn-group" role="group" data-toggle="buttons">
                                 </div>
                             </div>
-                            <div class="img-rounded">
+                            <div class="form-group">
+                                <img class="img-rounded center-block img-responsive hidden">
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-md-6 call">
-                    <div class="card card-border card-contrast card-border-color card-border-color-danger">
+                    <div class="card card-border card-contrast card-border-color card-border-color-success">
                         <div class="card-header card-header-contrast">Call</div>
                         <div class="card-body">
                             <div class="form-group">
-                                <div>
-                                    <div>
-                                        <div class="pta" class="list-group">
-                                        </div>
-                                    </div>
+                                <label>Position to Call</label>
+                                <div class="position btn-group" role="group" data-toggle="buttons">
                                 </div>
-                                <br>
-                                <div class="img-rounded">
-                                </div>
+                            </div>
+                            <div class="form-group">
+                                <img class="img-rounded center-block img-responsive hidden">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
     </main>
 </body>
 
