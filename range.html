@@ -479,17 +479,21 @@
                     $(elem).removeClass('disabled').children().removeProp('disabled');
                 }
             });
-            $('.call .img-rounded').attr('src', '').addClass('hidden');
+            $('.call .img-rounded').attr('src', '').fadeOut(100);
 
             var ante = anteValue();
             var stack = stackValue();
 
 
             if (ante && stack && push) {
-                var dir = getBaseDir(ante, stack) + 'openshove_vilao30bb_PADRAO/';
-                var file = ante + '_ante_' + push + '_' + stack + 'bb_v30bb.jpg';
+                var img = $('.push .img-rounded');
+                img.fadeOut(200, function() {
+                    var dir = getBaseDir(ante, stack) + 'openshove_vilao30bb_PADRAO/';
+                    var file = ante + '_ante_' + push + '_' + stack + 'bb_v30bb.jpg';
 
-                $('.push .img-rounded').attr('src', dir + file).removeClass('hidden');
+                    img.attr('src', dir + file);
+                    img.fadeIn(200);
+                });
             }
 
             selectImageCall();
@@ -523,10 +527,14 @@
             }
 
             if (ante && stack && push && call) {
-                var dir = getBaseDir(ante, stack) + 'caller30bb/vs' + push + '/';
-                var file = 'vs' + push + '_' + call + 'call.jpg';
+                var img = $('.call .img-rounded');
+                img.fadeOut(200, function() {
+                    var dir = getBaseDir(ante, stack) + 'caller30bb/vs' + push + '/';
+                    var file = 'vs' + push + '_' + call + 'call.jpg';
 
-                $('.call .img-rounded').attr('src', dir + file).removeClass('hidden');
+                    img.attr('src', dir + file);
+                    img.fadeIn(200);
+                });
             }
         }
     </script>
@@ -578,7 +586,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <img class="img-rounded center-block img-responsive hidden">
+                                <img class="img-rounded center-block img-responsive">
                             </div>
                         </div>
                     </div>
@@ -594,7 +602,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <img class="img-rounded center-block img-responsive hidden">
+                                <img class="img-rounded center-block img-responsive">
                             </div>
                         </div>
                     </div>
