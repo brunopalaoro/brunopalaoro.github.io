@@ -409,8 +409,8 @@
     <script type="text/javascript">
         var ante = [10, 12.5, 20];
         var frequencia = [15, 20, 25, 30, 35, 40, 45, 50];
-        var labelStack = ['10', '15', '20', '25'];
-        var imgStack = ['BB', 'BU', 'CO', 'SB'];
+        var stack = ['10', '15', '20', '25'];
+        var posicao = ['BB', 'BU', 'CO', 'SB'];
 
         $(document).ready(function () {
             var htmlAnte = '';
@@ -426,80 +426,68 @@
                 htmlFrequencia += '<label class="btn btn-secondary"><input type="radio" name="frequencia" autocomplete="off" value="' + frequencia[i] + '">' + frequencia[i] + '</label>';
             }
 
-            $('.frequencias').append(htmlFrequencia);
+            $('.frequencia').append(htmlFrequencia);
 
             var htmlStack = '';
-            for (var i = 0; i < labelStack.length; i++) {
-                htmlStack += '<label class="btn btn-secondary"><input type="radio" name="stack" autocomplete="off" value="' + i + '">' + labelStack[i] + '</label>';
+            for (var i = 0; i < stack.length; i++) {
+                htmlStack += '<label class="btn btn-secondary"><input type="radio" name="stack" autocomplete="off" value="' + stack[i] + '">' + stack[i] + '</label>';
             }
 
-            $('.push .stack').append(htmlStack);
+            $('.stack').append(htmlStack);
 
-            htmlStack = '';
-            for (var i = 0; i < labelStack.length; i++) {
-                htmlStack += '<label class="btn btn-secondary"><input type="radio" name="stack" autocomplete="off" value="' + i + '">' + labelStack[i] + '</label>';
+            var htmlPosicao = '';
+            for (var i = 0; i < posicao.length; i++) {
+                htmlPosicao += '<label class="btn btn-secondary"><input type="radio" name="stack" autocomplete="off" value="' + posicao[i] + '">' + posicao[i] + '</label>';
             }
-            $('.call .stack').append(htmlStack);
-            $('.call .stack .btn').addClass('disabled').children().prop('disabled', true);
 
+            $('.posicao').append(htmlPosicao);
+            
             $('.ante input').change(function () {
-                selectImagePush();
+                selectImage();
             });
-            $('.frequencias input').change(function () {
-                selectImagePush();
+            $('.frequencia input').change(function () {
+                selectImage();
             });
 
-            $('.push .stack input').change(function (obj) {
-                selectImagePush();
+            $('.stack input').change(function (obj) {
+                selectImage();
             });
-            $('.call .stack input').change(function (event) {
-                if ($(this).prop('disabled')) {
-                    $(this).parent().removeClass('active');
-                    event.preventDefault();
 
-                    return;
-                }
-                selectImageCall();
+            $('.posicao input').change(function (obj) {
+                selectImage();
             });
         });
 
-        function selectImagePush() {
-            var push = pushValue();
-            if (!push)
-                return;
-
-            var stack = $('.push .stack .btn.active').index('.push .stack .btn');
-
-            $('.call .stack .btn').each(function (idx, elem) {
-                if (idx < stack) {
-                    $(elem).addClass('disabled').children().prop('disabled', true);
-                    $(elem).removeClass('active');
-                } else {
-                    $(elem).removeClass('disabled').children().removeProp('disabled');
-                }
-            });
-            $('.call .img-rounded').attr('src', '').fadeOut(100);
-
+        function selectImage() {
             var ante = anteValue();
             var stack = stackValue();
+            var frequencia = frequenciaValue();
+            var posicao = posicaoValue();
 
-            if (ante && stack && push) {
-                var img = $('.push .img-rounded');
+            if (ante && stack && frequencia && posicao) {
+                var img = $('.resteal .img-rounded');
+                var imgCall = $('.call .img-rounded');
+
+                var dir = ante + '_ante/vs' + frequencia + '_open/' + stack + 'bb/' + posicao + '/';
+                var fileResteal = ante + '_ante_vs' + frequencia + '_open_' + posicao + 'shove_' + stack + 'bb.JPG';
+                var fileCall = 'OR calling range.JPG';
+                console.log(dir, fileResteal);
+
                 img.fadeOut(200, function () {
-                    var dir = getBaseDir(ante, stack);
-                    var file = stack + '_open.JPG';
-                    // var file = ante + '_ante_' + push + '_' + stack + 'bb_v30bb.jpg';
-                    console.log(dir, file);
-                    img.attr('src', dir + file);
+                    img.attr('src', dir + fileResteal);
                     img.fadeIn(200);
                 });
-            }
 
-            selectImageCall();
+                imgCall.fadeOut(200, function () {
+                    imgCall.attr('src', dir + fileCall);
+                    imgCall.fadeIn(200);
+                });
+
+            }
         }
 
         function getBaseDir(ante, stack) {
-            return ante + '_ante/vs' + stack + '_open/';
+            return ;
         }
 
         function anteValue() {
@@ -507,34 +495,15 @@
         }
 
         function stackValue() {
-            return $('.frequencias .btn.active input').val();
+            return $('.stack .btn.active input').val();
         }
 
-        function pushValue() {
-            return $('.push .stack .btn.active input').val();
+        function frequenciaValue() {
+            return $('.frequencia .btn.active input').val();
         }
 
-        function selectImageCall() {
-            var ante = anteValue();
-            var stack = stackValue();
-            var push = pushValue();
-            var call = $('.call .stack .btn.active input').val();
-
-            if (push === 'SB') {
-                call = 'BB';
-                $('.call .stack .btn:last-child').addClass('active');
-            }
-
-            if (ante && stack && push && call) {
-                var img = $('.call .img-rounded');
-                img.fadeOut(200, function () {
-                    var dir = getBaseDir(ante, stack) + labelStack[push] + 'bb/' + imgStack[push];
-                    var file =  call + 'call.jpg';
-                    console.log(dir, file);
-                    img.attr('src', dir + file);
-                    img.fadeIn(200);
-                });
-            }
+        function posicaoValue() {
+            return $('.posicao .btn.active input').val();
         }
     </script>
 </head>
@@ -561,8 +530,18 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label>frequencia de Open Raise</label>
-                                    <div class="frequencias btn-group" role="group" data-toggle="buttons">
+                                    <label>Frequencia de Open Raise</label>
+                                    <div class="frequencia btn-group" role="group" data-toggle="buttons">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Tamanho da stack</label>
+                                    <div class="stack btn-group" role="group" data-toggle="buttons">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Posição Re-Steal</label>
+                                    <div class="posicao btn-group" role="group" data-toggle="buttons">
                                     </div>
                                 </div>
                             </div>
@@ -574,15 +553,10 @@
 
         <div class="container cards">
             <div class="row">
-                <div class="col-md-6  push">
+                <div class="col-md-6 resteal">
                     <div class="card card-border card-contrast card-border-color card-border-color-danger">
-                        <div class="card-header card-header-contrast">Push</div>
+                        <div class="card-header card-header-contrast">Range Re-steal</div>
                         <div class="card-body">
-                            <div class="form-group">
-                                <label>Tamanho da stack</label>
-                                <div class="stack btn-group" role="group" data-toggle="buttons">
-                                </div>
-                            </div>
                             <div class="form-group">
                                 <img class="img-rounded center-block img-responsive">
                             </div>
@@ -592,13 +566,8 @@
 
                 <div class="col-md-6 call">
                     <div class="card card-border card-contrast card-border-color card-border-color-success">
-                        <div class="card-header card-header-contrast">Call</div>
+                        <div class="card-header card-header-contrast">Range call</div>
                         <div class="card-body">
-                            <div class="form-group">
-                                <label>Tamanho da stack</label>
-                                <div class="stack btn-group" role="group" data-toggle="buttons">
-                                </div>
-                            </div>
                             <div class="form-group">
                                 <img class="img-rounded center-block img-responsive">
                             </div>
